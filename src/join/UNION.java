@@ -42,12 +42,12 @@ public class UNION implements JoinOperator{
 	private final HashMap<RDFNode, Set<Binding>> r_soln = new HashMap<RDFNode, Set<Binding>>();
 	private  Set<Binding> results = new TreeSet<Binding>(new MyBindingComparator());
 
-	private String _joinVar; 
+	private String _joinVar;
 
 
 
 
-	
+
 	public BenchmarkResult executeHTTP(SplitQuery sq) {
 		return executeHTTP(sq,false);
 	}
@@ -59,7 +59,7 @@ public class UNION implements JoinOperator{
 		res.setBatchSize(sq.getBatch());
 		long start = System.currentTimeMillis();
 		long end = 0;
-		try{		
+		try {
 			Query p1 = QueryFactory.create();
 			p1.setQueryPattern(sq.getP1());
 			p1.setQuerySelectType();
@@ -84,16 +84,16 @@ public class UNION implements JoinOperator{
 			variables.add( Var.alloc(_joinVar));
 
 
-			
-			
+
+
 			if(sq.getBatch()>0){
 				runBatch(sq, p1, p2, res, debug);
 			}
 			else{
 				runSingle(sq, p1, p2, res, debug);
-				
+
 			}
-			
+
 
 			res.setResults(results);
 		}catch(Exception e){
@@ -109,7 +109,7 @@ public class UNION implements JoinOperator{
 	private void runBatch(SplitQuery sq, Query p1, Query p2,
 			BenchmarkResult res, boolean debug) {
 
-		
+
 		//init execution of left triple pattern
 		QueryExecution qexec =(QueryEngineHTTP) QueryExecutionFactory.sparqlService(sq.getP1Endpoint().toString(), p1);
 		res.epCall(0);
@@ -120,14 +120,14 @@ public class UNION implements JoinOperator{
 		while (l_results.hasNext()) {
 			c++;
 			final QuerySolution l_soln = l_results.nextSolution();
-			
+
 			if(l_soln.contains(_joinVar)){
 				addSolution(l_soln,true);
-				
-				
+
+
 				ElementGroup g= new ElementGroup();
 				g.addElement(p2.getQueryPattern());
-			
+
 				Expr e = new E_Equals(new ExprVar(_joinVar), new NodeValueNode(l_soln.get(_joinVar).asNode()));
 				ElementFilter filter = new ElementFilter(e);
 				g.addElement(filter);
@@ -138,7 +138,7 @@ public class UNION implements JoinOperator{
 					body.addElement(union);
 				}
 			}
-			
+
 			if(c%sq.getBatch()== 0){
 				System.out.println("Running batch");
 				Query p22 = p2.cloneQuery();
@@ -149,12 +149,12 @@ public class UNION implements JoinOperator{
 				QueryExecution p2qexec =(QueryEngineHTTP) QueryExecutionFactory.sparqlService(sq.getP2Endpoint().toString(), p22);
 				ResultSet p2_results = p2qexec.execSelect();
 				res.epCall(1);
-				
+
 				while (p2_results.hasNext()) {
 					c1++;
 					QuerySolution solnp2 = p2_results.nextSolution();
 					addSolution(solnp2, false);
-					
+
 				}
 				p2qexec.close();
 //				list = new ArrayList<Element>();
@@ -175,7 +175,7 @@ public class UNION implements JoinOperator{
 				c1++;
 				QuerySolution solnp2 = p2_results.nextSolution();
 				addSolution(solnp2, false);
-				
+
 			}
 			p2qexec.close();
 //			list = new ArrayList<Element>();
@@ -185,7 +185,7 @@ public class UNION implements JoinOperator{
 		res.setInterimResults("0", c);
 		res.setInterimResults("1", c1);
 		if(c1==0)results = new TreeSet<Binding>(new MyBindingComparator());
-		
+
 	}
 
 	private void runSingle(SplitQuery sq, Query p1, Query p2,
@@ -196,18 +196,18 @@ public class UNION implements JoinOperator{
 		res.epCall(0);
 		int c=0;
 		System.out.println("P1:"+p1);
-		
+
 		ElementGroup body = new ElementGroup();
 		while (l_results.hasNext()) {
 			c++;
 			QuerySolution l_soln = l_results.nextSolution();
 			if(l_soln.contains(_joinVar)){
-				
+
 			addSolution(l_soln,true);
-			
+
 			ElementGroup g= new ElementGroup();
 			g.addElement(p2.getQueryPattern());
-			
+
 			Expr e = new E_Equals(new ExprVar(_joinVar), new NodeValueNode(l_soln.get(_joinVar).asNode()));
 			ElementFilter filter = new ElementFilter(e);
 			g.addElement(filter);
@@ -229,7 +229,7 @@ public class UNION implements JoinOperator{
 		QueryExecution p2qexec =(QueryEngineHTTP) QueryExecutionFactory.sparqlService(sq.getP2Endpoint().toString(), p22);
 		ResultSet p2_results = p2qexec.execSelect();
 		res.epCall(1);
-		c=0;		
+		c=0;
 		res.epCall(1);
 		while (p2_results.hasNext()) {
 			c++;
@@ -240,8 +240,8 @@ public class UNION implements JoinOperator{
 		p2qexec.close();
 		if(c==0) results = new TreeSet<Binding>(new MyBindingComparator());
 	}
-//		
-//		
+//
+//
 //		while (l_results.hasNext()) {
 //			c++;
 //			final QuerySolution l_soln = l_results.nextSolution();
@@ -253,9 +253,9 @@ public class UNION implements JoinOperator{
 //				p2Str.setIri(_joinVar, l_soln.get(_joinVar).asNode().toString());
 //			list.add(p2Str.asQuery().getQueryPattern());
 //			addSolution(l_soln, true);
-//			
-//			
-//			
+//
+//
+//
 //		}
 //		qexec.close();
 //		ElementGroup body = new ElementGroup();
@@ -270,7 +270,7 @@ public class UNION implements JoinOperator{
 //		}
 //		res.setInterimResults("0", c);
 //
-//		
+//
 //		p2.setQueryPattern(body);
 //		if(debug){
 //			System.out.println("----\nExecuting query P2 "+p2);
@@ -288,7 +288,7 @@ public class UNION implements JoinOperator{
 //		}
 //		p2qexec.close();
 //		res.setInterimResults("1", c);
-//		
+//
 //	}
 
 	synchronized public void addSolution(QuerySolution soln, boolean _left) {

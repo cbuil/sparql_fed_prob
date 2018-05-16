@@ -3,13 +3,11 @@ package join;
 import java.util.List;
 
 import org.apache.jena.graph.Node;
-import org.apache.jena.graph.Triple;
 import org.apache.jena.sparql.core.TriplePath;
 import org.apache.jena.sparql.core.Var;
 import org.apache.jena.sparql.syntax.ElementPathBlock;
-import org.apache.jena.sparql.syntax.ElementVisitor;
 import org.apache.jena.sparql.syntax.ElementVisitorBase;
-import org.apache.jena.sparql.syntax.ElementWalker.Walker;
+//import org.apache.jena.sparql.syntax.ElementWalker.Walker;
 
 public class GetVars extends ElementVisitorBase {
 

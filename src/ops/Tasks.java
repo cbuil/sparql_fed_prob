@@ -14,6 +14,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.sparql.core.Var;
 import org.apache.jena.sparql.engine.binding.Binding;
 import org.apache.jena.sparql.engine.binding.BindingFactory;
+import org.apache.jena.sparql.engine.binding.BindingHashMap;
 import org.apache.jena.sparql.engine.binding.BindingMap;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.expr.E_Equals;
@@ -30,17 +31,17 @@ public class Tasks
 {
 
     // Execute SERVICE query
-    public static TreeSet<Binding> service(String endpoint, Query query)
+    public static TreeSet<BindingHashMap> service(String endpoint, Query query)
     {
         QueryExecution qexec = (QueryEngineHTTP) QueryExecutionFactory
                 .sparqlService(endpoint, query);
         ResultSet results = qexec.execSelect();
         // Start iterating
-        TreeSet<Binding> ret = new TreeSet<Binding>();
+        TreeSet<BindingHashMap> ret = new TreeSet<BindingHashMap>(new BindingHashMapComparator());
         while (results.hasNext())
         {
-            Binding qsol = results.nextBinding();
-            ret.add(qsol);
+            BindingHashMap q = (BindingHashMap) results.nextBinding();
+            ret.add(q);
         }
         // Close query execution
         qexec.close();
@@ -48,20 +49,20 @@ public class Tasks
     }
 
     // Execute SERVICE query with VALUES
-    public static TreeSet<Binding> serviceWithValues(String endpoint,
-            Query query, TreeSet<Binding> bindings, List<Var> match_vars)
+    public static TreeSet<BindingHashMap> serviceWithValues(String endpoint, Query query,
+        TreeSet<BindingHashMap> bindings, ArrayList<Var> match_vars)
     {
         // Fill a new list of bindings with the values
         List<Binding> bindingsf = new ArrayList<Binding>();
-        for (Binding qsol : bindings)
+        for (BindingHashMap q : bindings)
         {
             BindingMap m = BindingFactory.create();
             for (final Var var : match_vars)
             {
-                if (qsol.get(var) != null)
-                    m.add(var, qsol.get(var));
+                if (q.get(var) != null)
+                    m.add(var, q.get(var));
             }
-            bindingsf.add(m); // NOTE: Weird
+            bindingsf.add(m);
         }
         // Set the values data block to a copy of the query
         Query nquery = query.cloneQuery();
@@ -71,32 +72,32 @@ public class Tasks
     }
 
     // Execute SERVICE query with a nested loop
-    public static TreeSet<Binding> serviceNestedLoop(String endpoint,
-            Query query, TreeSet<Binding> bindings, List<Var> match_vars)
+    public static TreeSet<BindingHashMap> serviceNestedLoop(String endpoint,
+            Query query, TreeSet<BindingHashMap> bindings, ArrayList<Var> match_vars)
     {
         assert (match_vars != null);
-        TreeSet<Binding> ret = new TreeSet<Binding>();
+        TreeSet<BindingHashMap> ret = new TreeSet<BindingHashMap>(new BindingHashMapComparator());
         // For each binding call a SERVICE
-        for (Binding qsol : bindings)
+        for (BindingHashMap q : bindings)
         {
             ParameterizedSparqlString parstr = new ParameterizedSparqlString(
                     query.toString());
             for (final Var var : match_vars)
             {
-                if (qsol.get(var) instanceof Literal)
+                if (q.get(var) instanceof Literal)
                 {
-                    parstr.setLiteral(var.toString(), (Literal) qsol.get(var));
+                    parstr.setLiteral(var.toString(), (Literal) q.get(var));
                 }
-                if (qsol.get(var) instanceof Resource)
+                if (q.get(var) instanceof Resource)
                 {
-                    parstr.setIri(var.toString(), qsol.get(var).toString()); // NOTE
+                    parstr.setIri(var.toString(), q.get(var).toString()); // NOTE
                 }
             }
             // Create a singleton for the element then do a join with the
             // service call.
-            TreeSet<Binding> singleton = new TreeSet<Binding>();
-            singleton.add(qsol);
-            TreeSet<Binding> results = service(endpoint, parstr.asQuery());
+            TreeSet<BindingHashMap> singleton = new TreeSet<BindingHashMap>(new BindingHashMapComparator());
+            singleton.add(q);
+            TreeSet<BindingHashMap> results = service(endpoint, parstr.asQuery());
             // Add the results together
             ret.addAll(results);
         }
@@ -104,24 +105,24 @@ public class Tasks
     }
 
     // Execute SERVICE query with a symmetric hash join
-    public static TreeSet<Binding> serviceSymmetricHash(String endpoint,
-            Query query, TreeSet<Binding> bindings, List<Var> match_vars)
+    public static TreeSet<BindingHashMap> serviceSymmetricHash(String endpoint,
+            Query query, TreeSet<BindingHashMap> bindings, ArrayList<Var> match_vars)
     {
-        TreeSet<Binding> results = service(endpoint, query);
-        return Operations.join(bindings, results);
+        TreeSet<BindingHashMap> results = service(endpoint, query);
+        return Operations.join(bindings, results, match_vars);
     }
 
     // Adds a FILTER to expr, that only selects elements that match the
     // bindings.
-    public static ElementGroup filter(TreeSet<Binding> bindings,
-            List<Var> match_vars, ElementGroup expr)
+    public static ElementGroup filter(TreeSet<BindingHashMap> bindings,
+            ArrayList<Var> match_vars, ElementGroup expr)
     {
         assert (match_vars != null);
         // Create the filtering expression:
         Expr filter_expr = null;
-        for (Binding qsol : bindings)
+        for (BindingHashMap q : bindings)
         {
-            Expr fexpr = matchExpr(qsol, match_vars);
+            Expr fexpr = matchExpr(q, match_vars);
             if (filter_expr == null)
                 filter_expr = fexpr;
             else
@@ -140,18 +141,18 @@ public class Tasks
     }
 
     // Creates a UNION of copies of expr, one for every binding with its filter.
-    public static ElementGroup union(TreeSet<Binding> bindings,
-            List<Var> match_vars, ElementGroup expr)
+    public static ElementGroup union(TreeSet<BindingHashMap> bindings,
+            ArrayList<Var> match_vars, ElementGroup expr)
     {
         assert (match_vars != null);
         // Create the big query
         ElementGroup body = new ElementGroup();
-        for (Binding qsol : bindings)
+        for (BindingHashMap q : bindings)
         {
             ElementGroup part = new ElementGroup();
             part.addElement(expr);
             //
-            Expr fexpr = matchExpr(qsol, match_vars);
+            Expr fexpr = matchExpr(q, match_vars);
             ElementFilter filter = new ElementFilter(fexpr);
             part.addElement(filter);
             //
@@ -161,23 +162,23 @@ public class Tasks
             }
             else
             {
-                ElementUnion union = new ElementUnion(part);
-                body.addElement(union);
+                ElementUnion uni = new ElementUnion(part);
+                body.addElement(uni);
             }
         }
         return body;
     }
 
-    // Creates an expression that matches if has the same values than qsol on
+    // Creates an expression that matches if has the same values than q on
     // the match_vars.
-    private static Expr matchExpr(Binding qsol, List<Var> match_vars)
+    private static Expr matchExpr(BindingHashMap q, ArrayList<Var> match_vars)
     {
         assert (match_vars != null);
         Expr match_expr = null;
         for (Var var : match_vars)
         {
             Expr expr = new E_Equals(new ExprVar(var),
-                    new NodeValueNode(qsol.get(var)));
+                    new NodeValueNode(q.get(var)));
             if (match_expr == null)
                 match_expr = expr;
             else
