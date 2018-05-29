@@ -1,0 +1,4 @@
+#JOIN results time ep0_calls ep1_calls
+1,50,3,1,1,1,-1,
+#Bindings
+( ?X = <http://example.org/a> ) ( ?Y = <http://example.org/a> )

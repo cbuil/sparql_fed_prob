@@ -1,0 +1,54 @@
+#!/bin/sh
+#ant clean 
+#ant dist
+
+SUF=$1
+BASE=`pwd`
+JAR=$BASE/dist/benchmark.jar
+QDIR=$BASE/resources/queries
+BIO=$QDIR/bio/fuseki
+
+LOG=$BIO/results_$SUF.tsv
+LDIR=$BIO/logs_$SUF
+mkdir $LDIR
+
+RUNS=1
+
+# iterate over the queries
+cd $BIO
+for i in `ls -1 *rq`
+do
+    for join in FILTER UNION VALUES
+    do
+        for batch in -1 250 500 750
+        do
+            for c in $(seq 1 $RUNS)
+            do
+                echo "java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.results -b $batch 2>$LOG 1> $LDIR/$i-$join-$batch-$c.log"
+                java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.bio.results -b $batch 2>>$LOG 1> $LDIR/$i-$join-$batch-$c.log
+            done
+        done
+    done
+
+    for join in SYMHASHP
+    do
+        for batch in 250 500 750
+        do
+            for c in $(seq 1 $RUNS)
+                                                                 do
+                                                                                     echo "java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.results -b $batch 2>$LOG 1> $LDIR/$i-$join-$batch-$c.log"
+                                                                                                     java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.bio.results -b $batch 2>>$LOG 1> $LDIR/$i-$join-$batch-$c.log
+                                                                                                                 done
+                                                                                                                         done
+                                                                                                                             done
+
+
+    for join in  SERVICE NESTED SYMHASH
+    do
+         for c in $(seq 1 $RUNS)
+        do
+             echo "java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.results -b $batch 2>$LOG 1> $LDIR/$i-$join-$c.log"
+            java -jar $JAR Run -e http://localhost:3030/mgi/sparql -q $BIO/$i -j $join -o bench.bio.results -b $batch 2>>$LOG 1> $LDIR/$i-$join-$c.log
+        done
+    done
+done

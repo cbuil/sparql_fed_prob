@@ -1,0 +1,22 @@
+##############################S6########################################
+#Find all musical artists based in Germany.
+#Results: 11
+
+--------------------------------S6 SPARQL 1.1 ----------------------------------------
+SELECT ?name ?location 
+WHERE {
+{
+SERVICE <http://jamendo.system.ip.address:8894/sparql> {?artist <http://xmlns.com/foaf/0.1/name> ?name . ?artist <http://xmlns.com/foaf/0.1/based_near> ?location .}
+}
+UNION
+{
+SERVICE <http://swdfood.system.ip.address:8898/sparql> {?artist <http://xmlns.com/foaf/0.1/name> ?name .?artist <http://xmlns.com/foaf/0.1/based_near> ?location .}
+ }
+ {
+SERVICE <http://geonames.system.ip.address:8893/sparql> {?location <http://www.geonames.org/ontology#parentFeature> ?germany . ?germany <http://www.geonames.org/ontology#name> 'Federal Republic of Germany'}
+}
+UNION
+{
+SERVICE <http://nyt.system.ip.address:8897/sparql> {?location <http://www.geonames.org/ontology#parentFeature> ?germany . ?germany <http://www.geonames.org/ontology#name> 'Federal Republic of Germany'}
+}
+}

@@ -1,0 +1,103 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join2.rq, -j, FILTER, -o, bench.bio.results, -b, 250])
+ Joins [FILTER]
+250
+250
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?o  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join ;
+            <http://bio2rdf.org/mgi_vocabulary:xSymbol>  ?symbol
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?o  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join ;
+      <http://bio2rdf.org/mgi_vocabulary:xSymbol>  ?symbol
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" })
+___
+RUNNING FILTER for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join2.rq
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+Running batch with 250
+[JOIN] FILTER [RESULTS] 17547 [TIME] -1 [EXCEPTION] 
+ carlos_join2.rq,FILTER,17547,13034,17817,17547,1,72,250,
+=======[END] (15845 ms)
+ 

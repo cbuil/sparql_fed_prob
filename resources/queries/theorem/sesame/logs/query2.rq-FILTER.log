@@ -1,0 +1,4 @@
+=======[START] ([-l, -e, http://localhost:8080/openrdf-sesame/repositories/data1, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/theorem/sesame/query2.rq, -j, FILTER, -o, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/theorem/sesame/results])
+ Joins [FILTER]
+null
+-1

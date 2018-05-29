@@ -1,0 +1,24 @@
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+SELECT   ?expValue 
+WHERE
+{
+  {
+   #SERVICE <http://LinkedTCGA-E.system.ip.address:8888/sparql>  
+   SERVICE <http://200.1.19.244:8888/sparql>
+   {
+   ?s   tcga:bcr_patient_barcode    <http://tcga.deri.ie/TCGA-37-3789>.  
+   <http://tcga.deri.ie/TCGA-37-3789>   tcga:result ?results. 
+   ?results  tcga:RPKM ?expValue.
+   }
+  }
+UNION
+  {
+   # SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   SERVICE <http://200.1.19.244:8889/sparql>
+   {
+   ?uri tcga:bcr_patient_barcode    <http://tcga.deri.ie/TCGA-37-3789>.  
+   <http://tcga.deri.ie/TCGA-37-3789>   tcga:result ?geneResults. 
+   ?geneResults  tcga:scaled_estimate ?expValue.
+   }
+  }
+}

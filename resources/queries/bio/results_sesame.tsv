@@ -1,0 +1,621 @@
+carlos_join1.rq	VALUES	1	1217	27	1	1	1	-1	
+carlos_join1.rq	VALUES	1	811	27	1	1	1	-1	
+carlos_join1.rq	VALUES	1	837	27	1	1	1	-1	
+carlos_join1.rq	VALUES	1	750	27	1	1	1	250	
+carlos_join1.rq	VALUES	1	880	27	1	1	1	250	
+carlos_join1.rq	VALUES	1	768	27	1	1	1	250	
+carlos_join1.rq	VALUES	1	786	27	1	1	1	500	
+carlos_join1.rq	VALUES	1	814	27	1	1	1	500	
+carlos_join1.rq	VALUES	1	699	27	1	1	1	500	
+carlos_join1.rq	VALUES	1	958	27	1	1	1	750	
+carlos_join1.rq	VALUES	1	714	27	1	1	1	750	
+carlos_join1.rq	VALUES	1	855	27	1	1	1	750	
+carlos_join1.rq	FILTER	1	4757	27	1	1	1	-1	
+carlos_join1.rq	FILTER	1	3052	27	1	1	1	-1	
+carlos_join1.rq	FILTER	1	2758	27	1	1	1	-1	
+carlos_join1.rq	FILTER	1	2907	27	1	1	1	250	
+carlos_join1.rq	FILTER	1	3051	27	1	1	1	250	
+carlos_join1.rq	FILTER	1	2766	27	1	1	1	250	
+carlos_join1.rq	FILTER	1	2859	27	1	1	1	500	
+carlos_join1.rq	FILTER	1	2800	27	1	1	1	500	
+carlos_join1.rq	FILTER	1	3166	27	1	1	1	500	
+carlos_join1.rq	FILTER	1	2736	27	1	1	1	750	
+carlos_join1.rq	FILTER	1	2859	27	1	1	1	750	
+carlos_join1.rq	FILTER	1	3036	27	1	1	1	750	
+carlos_join1.rq	UNION	1	2803	27	1	1	2	-1	
+carlos_join1.rq	UNION	1	2868	27	1	1	2	-1	
+carlos_join1.rq	UNION	1	2827	27	1	1	2	-1	
+carlos_join1.rq	UNION	1	3018	27	1	1	1	250	
+carlos_join1.rq	UNION	1	2718	27	1	1	1	250	
+carlos_join1.rq	UNION	1	3087	27	1	1	1	250	
+carlos_join1.rq	UNION	1	3077	27	1	1	1	500	
+carlos_join1.rq	UNION	1	4780	27	1	1	1	500	
+carlos_join1.rq	UNION	1	5588	27	1	1	1	500	
+carlos_join1.rq	UNION	1	3341	27	1	1	1	750	
+carlos_join1.rq	UNION	1	2830	27	1	1	1	750	
+carlos_join1.rq	UNION	1	3842	27	1	1	1	750	
+carlos_join1.rq	SYMHASHP	1	2364	27	33562	1	1	-1	
+carlos_join1.rq	SYMHASHP	1	1983	27	33562	1	1	-1	
+carlos_join1.rq	SYMHASHP	1	2681	27	33562	1	1	-1	
+carlos_join1.rq	SYMHASHP	TIMED OUT	250
+carlos_join1.rq	SYMHASHP	TIMED OUT	250
+carlos_join1.rq	SYMHASHP	TIMED OUT	250
+carlos_join1.rq	SYMHASHP	TIMED OUT	500
+carlos_join1.rq	SYMHASHP	TIMED OUT	500
+carlos_join1.rq	SYMHASHP	TIMED OUT	500
+carlos_join1.rq	SYMHASHP	1	481144	27	33562	1	1	750	
+carlos_join1.rq	SYMHASHP	TIMED OUT	750
+carlos_join1.rq	SYMHASHP	1	418796	27	33562	1	1	750	
+carlos_join1.rq	SERVICE	1	5415	1	0	-1	-1	750	
+carlos_join1.rq	SERVICE	1	3917	1	0	-1	-1	750	
+carlos_join1.rq	SERVICE	1	1333	1	0	-1	-1	750	
+carlos_join1.rq	SYMHASH	1	1558	27	33562	1	1	750	
+carlos_join1.rq	SYMHASH	1	4753	27	33562	1	1	750	
+carlos_join1.rq	SYMHASH	1	3428	27	33562	1	1	750	
+carlos_join1.rq	GCSYMHASH	1	1750	22	1	1	1	750	
+carlos_join1.rq	GCSYMHASH	1	3415	22	1	1	1	750	
+carlos_join1.rq	GCSYMHASH	1	1999	22	1	1	1	750	
+carlos_join1.rq	NESTED	1	3255	27	1	1	27	750	
+carlos_join1.rq	NESTED	1	3607	27	1	1	27	750	
+carlos_join1.rq	NESTED	1	3263	27	1	1	27	750	
+carlos_join2.rq	VALUES	17545	5467	17817	17547	1	1	-1	
+carlos_join2.rq	VALUES	17545	2371	17817	17547	1	1	-1	
+carlos_join2.rq	VALUES	17545	2258	17817	17547	1	1	-1	
+carlos_join2.rq	VALUES	17545	9192	17817	17547	1	72	250	
+carlos_join2.rq	VALUES	17545	10179	17817	17547	1	72	250	
+carlos_join2.rq	VALUES	17545	19201	17817	17547	1	72	250	
+carlos_join2.rq	VALUES	17545	10559	17817	17547	1	36	500	
+carlos_join2.rq	VALUES	17545	7568	17817	17547	1	36	500	
+carlos_join2.rq	VALUES	17545	6034	17817	17547	1	36	500	
+carlos_join2.rq	VALUES	17545	6302	17817	17547	1	24	750	
+carlos_join2.rq	VALUES	17545	5768	17817	17547	1	24	750	
+carlos_join2.rq	VALUES	17545	5253	17817	17547	1	24	750	
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join2.rq	FILTER	17547	13034	17817	17547	1	72	250	
+carlos_join2.rq	FILTER	17547	12318	17817	17547	1	72	250	
+carlos_join2.rq	FILTER	17547	12580	17817	17547	1	72	250	
+carlos_join2.rq	FILTER	17547	9921	17817	17547	1	36	500	
+carlos_join2.rq	FILTER	17547	8583	17817	17547	1	36	500	
+carlos_join2.rq	FILTER	17547	10953	17817	17547	1	36	500	
+carlos_join2.rq	FILTER	17547	27038	17817	17547	1	24	750	
+carlos_join2.rq	FILTER	17547	12536	17817	17547	1	24	750	
+carlos_join2.rq	FILTER	17547	19223	17817	17547	1	24	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join2.rq	UNION	-1	6100	17817	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join2.rq	UNION	-1	8666	17817	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join2.rq	UNION	-1	4898	17817	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join2.rq	UNION	17547	18339	17817	17547	1	72	250	
+carlos_join2.rq	UNION	17547	17147	17817	17547	1	72	250	
+carlos_join2.rq	UNION	17547	17022	17817	17547	1	72	250	
+carlos_join2.rq	UNION	17547	12633	17817	17547	1	36	500	
+carlos_join2.rq	UNION	17547	15266	17817	17547	1	36	500	
+carlos_join2.rq	UNION	17547	10564	17817	17547	1	36	500	
+carlos_join2.rq	UNION	17547	8856	17817	17547	1	24	750	
+carlos_join2.rq	UNION	17547	8774	17817	17547	1	24	750	
+carlos_join2.rq	UNION	17547	7662	17817	17547	1	24	750	
+carlos_join2.rq	SYMHASHP	17547	4196	17817	33562	1	1	-1	
+carlos_join2.rq	SYMHASHP	17547	7462	17817	33562	1	1	-1	
+carlos_join2.rq	SYMHASHP	17547	5330	17817	33562	1	1	-1	
+carlos_join2.rq	SYMHASHP	TIMED OUT	250
+carlos_join2.rq	SYMHASHP	TIMED OUT	250
+carlos_join2.rq	SYMHASHP	TIMED OUT	250
+carlos_join2.rq	SYMHASHP	17547	491471	17817	33562	1	1	500	
+carlos_join2.rq	SYMHASHP	17547	466677	17817	33562	1	1	500	
+carlos_join2.rq	SYMHASHP	17547	449745	17817	33562	1	1	500	
+carlos_join2.rq	SYMHASHP	17547	281530	17817	33562	1	1	750	
+carlos_join2.rq	SYMHASHP	17547	374340	17817	33562	1	1	750	
+carlos_join2.rq	SYMHASHP	17547	283509	17817	33562	1	1	750	
+carlos_join2.rq	SERVICE	17547	3465	17547	0	-1	-1	750	
+carlos_join2.rq	SERVICE	17547	3190	17547	0	-1	-1	750	
+carlos_join2.rq	SERVICE	17547	3571	17547	0	-1	-1	750	
+carlos_join2.rq	SYMHASH	17547	3789	17817	33562	1	1	750	
+carlos_join2.rq	SYMHASH	17547	4069	17817	33562	1	1	750	
+carlos_join2.rq	SYMHASH	17547	3148	17817	33562	1	1	750	
+carlos_join2.rq	GCSYMHASH	17547	3830	17816	1	1	1	750	
+carlos_join2.rq	GCSYMHASH	17547	4544	17816	1	1	1	750	
+carlos_join2.rq	GCSYMHASH	17547	4519	17816	1	1	1	750	
+carlos_join2.rq	NESTED	TIMED OUT	750
+carlos_join2.rq	NESTED	TIMED OUT	750
+carlos_join2.rq	NESTED	TIMED OUT	750
+carlos_join3.rq	VALUES	2	2368	16753	2	1	1	-1	
+carlos_join3.rq	VALUES	2	1658	16753	2	1	1	-1	
+carlos_join3.rq	VALUES	2	1623	16753	2	1	1	-1	
+carlos_join3.rq	VALUES	2	7905	16753	2	1	68	250	
+carlos_join3.rq	VALUES	2	7990	16753	2	1	68	250	
+carlos_join3.rq	VALUES	2	7788	16753	2	1	68	250	
+carlos_join3.rq	VALUES	2	4839	16753	2	1	34	500	
+carlos_join3.rq	VALUES	2	4857	16753	2	1	34	500	
+carlos_join3.rq	VALUES	2	4673	16753	2	1	34	500	
+carlos_join3.rq	VALUES	2	3963	16753	2	1	23	750	
+carlos_join3.rq	VALUES	2	3776	16753	2	1	23	750	
+carlos_join3.rq	VALUES	2	3725	16753	2	1	23	750	
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join3.rq	FILTER	2	11459	16753	2	1	68	250	
+carlos_join3.rq	FILTER	2	10122	16753	2	1	68	250	
+carlos_join3.rq	FILTER	2	10859	16753	2	1	68	250	
+carlos_join3.rq	FILTER	2	6835	16753	2	1	34	500	
+carlos_join3.rq	FILTER	2	7186	16753	2	1	34	500	
+carlos_join3.rq	FILTER	2	6798	16753	2	1	34	500	
+carlos_join3.rq	FILTER	2	6736	16753	2	1	23	750	
+carlos_join3.rq	FILTER	2	5603	16753	2	1	23	750	
+carlos_join3.rq	FILTER	2	4931	16753	2	1	23	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join3.rq	UNION	-1	4594	16753	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join3.rq	UNION	-1	4798	16753	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join3.rq	UNION	-1	4807	16753	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join3.rq	UNION	2	12412	16753	2	1	68	250	
+carlos_join3.rq	UNION	2	11918	16753	2	1	68	250	
+carlos_join3.rq	UNION	2	12956	16753	2	1	68	250	
+carlos_join3.rq	UNION	2	9805	16753	2	1	34	500	
+carlos_join3.rq	UNION	2	9414	16753	2	1	34	500	
+carlos_join3.rq	UNION	2	9321	16753	2	1	34	500	
+carlos_join3.rq	UNION	2	9292	16753	2	1	23	750	
+carlos_join3.rq	UNION	2	8735	16753	2	1	23	750	
+carlos_join3.rq	UNION	2	8516	16753	2	1	23	750	
+carlos_join3.rq	SYMHASHP	2	1621	16753	2	1	1	-1	
+carlos_join3.rq	SYMHASHP	2	1511	16753	2	1	1	-1	
+carlos_join3.rq	SYMHASHP	2	1529	16753	2	1	1	-1	
+carlos_join3.rq	SYMHASHP	2	1683	16753	2	1	1	250	
+carlos_join3.rq	SYMHASHP	2	1704	16753	2	1	1	250	
+carlos_join3.rq	SYMHASHP	2	1751	16753	2	1	1	250	
+carlos_join3.rq	SYMHASHP	2	1600	16753	2	1	1	500	
+carlos_join3.rq	SYMHASHP	2	1571	16753	2	1	1	500	
+carlos_join3.rq	SYMHASHP	2	1594	16753	2	1	1	500	
+carlos_join3.rq	SYMHASHP	2	1675	16753	2	1	1	750	
+carlos_join3.rq	SYMHASHP	2	1706	16753	2	1	1	750	
+carlos_join3.rq	SYMHASHP	2	2324	16753	2	1	1	750	
+carlos_join3.rq	SERVICE	2	508	2	0	-1	-1	750	
+carlos_join3.rq	SERVICE	2	489	2	0	-1	-1	750	
+carlos_join3.rq	SERVICE	2	509	2	0	-1	-1	750	
+carlos_join3.rq	SYMHASH	2	1727	16753	2	1	1	750	
+carlos_join3.rq	SYMHASH	2	1810	16753	2	1	1	750	
+carlos_join3.rq	SYMHASH	2	1713	16753	2	1	1	750	
+carlos_join3.rq	GCSYMHASH	2	3073	16753	2	1	1	750	
+carlos_join3.rq	GCSYMHASH	2	3084	16753	2	1	1	750	
+carlos_join3.rq	GCSYMHASH	2	3070	16753	2	1	1	750	
+carlos_join3.rq	NESTED	TIMED OUT	750
+carlos_join3.rq	NESTED	TIMED OUT	750
+carlos_join3.rq	NESTED	TIMED OUT	750
+carlos_join4.rq	VALUES	-1	22235	250924	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join4.rq	VALUES	-1	13213	250924	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join4.rq	VALUES	-1	9419	250924	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join4.rq	VALUES	TIMED OUT	250
+carlos_join4.rq	VALUES	TIMED OUT	250
+carlos_join4.rq	VALUES	TIMED OUT	250
+carlos_join4.rq	VALUES	TIMED OUT	500
+carlos_join4.rq	VALUES	TIMED OUT	500
+carlos_join4.rq	VALUES	TIMED OUT	500
+carlos_join4.rq	VALUES	TIMED OUT	750
+carlos_join4.rq	VALUES	TIMED OUT	750
+carlos_join4.rq	VALUES	TIMED OUT	750
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join4.rq	FILTER	6	35749	250924	6	1	110	250	
+carlos_join4.rq	FILTER	6	38746	250924	6	1	110	250	
+carlos_join4.rq	FILTER	6	30938	250924	6	1	110	250	
+carlos_join4.rq	FILTER	6	28630	250924	6	1	58	500	
+carlos_join4.rq	FILTER	6	25544	250924	6	1	58	500	
+carlos_join4.rq	FILTER	6	25726	250924	6	1	58	500	
+carlos_join4.rq	FILTER	6	22674	250924	6	1	40	750	
+carlos_join4.rq	FILTER	6	23002	250924	6	1	40	750	
+carlos_join4.rq	FILTER	6	30405	250924	6	1	40	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join4.rq	UNION	-1	25235	250924	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join4.rq	UNION	-1	19699	250924	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join4.rq	UNION	-1	17565	250924	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join4.rq	UNION	6	128952	250924	900	1	1004	250	
+carlos_join4.rq	UNION	6	113224	250924	900	1	1004	250	
+carlos_join4.rq	UNION	6	124771	250924	900	1	1004	250	
+carlos_join4.rq	UNION	6	65241	250924	450	1	502	500	
+carlos_join4.rq	UNION	6	64054	250924	450	1	502	500	
+carlos_join4.rq	UNION	6	61478	250924	450	1	502	500	
+carlos_join4.rq	UNION	6	45309	250924	301	1	335	750	
+carlos_join4.rq	UNION	6	47905	250924	301	1	335	750	
+carlos_join4.rq	UNION	6	46689	250924	301	1	335	750	
+carlos_join4.rq	SYMHASHP	6	14833	250924	23	1	1	-1	
+carlos_join4.rq	SYMHASHP	6	13386	250924	23	1	1	-1	
+carlos_join4.rq	SYMHASHP	6	11627	250924	23	1	1	-1	
+carlos_join4.rq	SYMHASHP	6	11829	250924	23	1	1	250	
+carlos_join4.rq	SYMHASHP	6	11699	250924	23	1	1	250	
+carlos_join4.rq	SYMHASHP	6	13353	250924	23	1	1	250	
+carlos_join4.rq	SYMHASHP	6	12213	250924	23	1	1	500	
+carlos_join4.rq	SYMHASHP	6	12840	250924	23	1	1	500	
+carlos_join4.rq	SYMHASHP	6	12805	250924	23	1	1	500	
+carlos_join4.rq	SYMHASHP	6	12565	250924	23	1	1	750	
+carlos_join4.rq	SYMHASHP	6	12287	250924	23	1	1	750	
+carlos_join4.rq	SYMHASHP	6	13644	250924	23	1	1	750	
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join4.rq	SYMHASH	6	16056	250924	23	1	1	750	
+carlos_join4.rq	SYMHASH	6	12981	250924	23	1	1	750	
+carlos_join4.rq	SYMHASH	6	12267	250924	23	1	1	750	
+carlos_join4.rq	GCSYMHASH	6	28947	250923	18	1	1	750	
+carlos_join4.rq	GCSYMHASH	6	32888	250923	18	1	1	750	
+carlos_join4.rq	GCSYMHASH	6	26556	250923	18	1	1	750	
+carlos_join4.rq	NESTED	TIMED OUT	750
+carlos_join4.rq	NESTED	TIMED OUT	750
+carlos_join4.rq	NESTED	TIMED OUT	750
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join5.rq	VALUES	TIMED OUT	-1
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join5.rq	VALUES	TIMED OUT	250
+carlos_join5.rq	VALUES	TIMED OUT	250
+carlos_join5.rq	VALUES	TIMED OUT	250
+carlos_join5.rq	VALUES	TIMED OUT	500
+carlos_join5.rq	VALUES	TIMED OUT	500
+carlos_join5.rq	VALUES	TIMED OUT	500
+carlos_join5.rq	VALUES	TIMED OUT	750
+carlos_join5.rq	VALUES	TIMED OUT	750
+carlos_join5.rq	VALUES	TIMED OUT	750
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join5.rq	FILTER	TIMED OUT	250
+carlos_join5.rq	FILTER	TIMED OUT	250
+carlos_join5.rq	FILTER	TIMED OUT	250
+carlos_join5.rq	FILTER	TIMED OUT	500
+carlos_join5.rq	FILTER	TIMED OUT	500
+carlos_join5.rq	FILTER	TIMED OUT	500
+carlos_join5.rq	FILTER	TIMED OUT	750
+carlos_join5.rq	FILTER	TIMED OUT	750
+carlos_join5.rq	FILTER	TIMED OUT	750
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join5.rq	UNION	-1	10235	16753	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join5.rq	UNION	-1	12607	16753	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)
+	... 16 more
+carlos_join5.rq	UNION	-1	14701	16753	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join5.rq	UNION	TIMED OUT	250
+carlos_join5.rq	UNION	TIMED OUT	250
+carlos_join5.rq	UNION	TIMED OUT	250
+carlos_join5.rq	UNION	TIMED OUT	500
+carlos_join5.rq	UNION	TIMED OUT	500
+carlos_join5.rq	UNION	TIMED OUT	500
+carlos_join5.rq	UNION	TIMED OUT	750
+carlos_join5.rq	UNION	TIMED OUT	750
+carlos_join5.rq	UNION	TIMED OUT	750
+carlos_join5.rq	SYMHASHP	3274	6098	16753	8771	1	1	-1	
+carlos_join5.rq	SYMHASHP	3274	3789	16753	8771	1	1	-1	
+carlos_join5.rq	SYMHASHP	3274	5044	16753	8771	1	1	-1	
+carlos_join5.rq	SYMHASHP	3274	59008	16753	8771	1	1	250	
+carlos_join5.rq	SYMHASHP	3274	46262	16753	8771	1	1	250	
+carlos_join5.rq	SYMHASHP	3274	40023	16753	8771	1	1	250	
+carlos_join5.rq	SYMHASHP	3274	21498	16753	8771	1	1	500	
+carlos_join5.rq	SYMHASHP	3274	21547	16753	8771	1	1	500	
+carlos_join5.rq	SYMHASHP	3274	18927	16753	8771	1	1	500	
+carlos_join5.rq	SYMHASHP	3274	14642	16753	8771	1	1	750	
+carlos_join5.rq	SYMHASHP	3274	14518	16753	8771	1	1	750	
+carlos_join5.rq	SYMHASHP	3274	14232	16753	8771	1	1	750	
+carlos_join6.rq	VALUES	-1	24984	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join6.rq	VALUES	-1	18571	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join6.rq	VALUES	-1	15560	268743	-1	1	-1	-1	QueryExceptionHTTP
+org.apache.jena.atlas.json.JsonParseException: Broken token: res1
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: res1
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: res1
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: dataty
+org.apache.jena.atlas.json.JsonParseException: Broken token: http://www.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+carlos_join6.rq	VALUES	TIMED OUT	750
+org.apache.jena.atlas.json.JsonParseException: Broken token: dat
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join6.rq	FILTER	23873	50948	268743	47742	1	184	250	
+carlos_join6.rq	FILTER	23873	45149	268743	47742	1	184	250	
+carlos_join6.rq	FILTER	23873	55522	268743	47742	1	184	250	
+carlos_join6.rq	FILTER	23873	45848	268743	47742	1	94	500	
+carlos_join6.rq	FILTER	23873	49788	268743	47742	1	94	500	
+carlos_join6.rq	FILTER	23873	47850	268743	47742	1	94	500	
+carlos_join6.rq	FILTER	23873	74772	268743	47742	1	63	750	
+carlos_join6.rq	FILTER	23873	43759	268743	47742	1	63	750	
+carlos_join6.rq	FILTER	23873	48481	268743	47742	1	63	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join6.rq	UNION	-1	24238	268743	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Protocol wrong type for socket (Write failed): Unexpected error making the query: java.net.SocketException: Protocol wrong type for socket (Write failed)
+Caused by: java.net.SocketException: Protocol wrong type for socket (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join6.rq	UNION	-1	23571	268743	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join6.rq	UNION	-1	30281	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join6.rq	UNION	23873	168627	268743	48633	1	1075	250	
+carlos_join6.rq	UNION	23873	153636	268743	48633	1	1075	250	
+carlos_join6.rq	UNION	23873	145273	268743	48633	1	1075	250	
+carlos_join6.rq	UNION	23873	102650	268743	48186	1	538	500	
+carlos_join6.rq	UNION	23873	114240	268743	48186	1	538	500	
+carlos_join6.rq	UNION	23873	106697	268743	48186	1	538	500	
+carlos_join6.rq	UNION	23873	79600	268743	48038	1	359	750	
+carlos_join6.rq	UNION	23873	70819	268743	48038	1	359	750	
+carlos_join6.rq	UNION	23873	71104	268743	48038	1	359	750	
+carlos_join6.rq	SYMHASHP	23873	18572	268743	27132	1	1	-1	
+carlos_join6.rq	SYMHASHP	23873	56751	268743	27132	1	1	-1	
+carlos_join6.rq	SYMHASHP	23873	26873	268743	27132	1	1	-1	
+carlos_join6.rq	SYMHASHP	TIMED OUT	250
+carlos_join6.rq	SYMHASHP	TIMED OUT	250
+carlos_join6.rq	SYMHASHP	TIMED OUT	250
+carlos_join6.rq	SYMHASHP	TIMED OUT	500
+carlos_join6.rq	SYMHASHP	23873	480076	268743	27132	1	1	500	
+carlos_join6.rq	SYMHASHP	23873	446954	268743	27132	1	1	500	
+carlos_join6.rq	SYMHASHP	23873	403000	268743	27132	1	1	750	
+carlos_join6.rq	SYMHASHP	23873	392096	268743	27132	1	1	750	
+carlos_join6.rq	SYMHASHP	23873	368206	268743	27132	1	1	750	
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join6.rq	SYMHASH	23873	22732	268743	27132	1	1	750	
+carlos_join6.rq	SYMHASH	23873	22267	268743	27132	1	1	750	
+carlos_join6.rq	SYMHASH	23873	25870	268743	27132	1	1	750	
+carlos_join6.rq	GCSYMHASH	23873	64251	268740	25201	1	1	750	
+carlos_join6.rq	GCSYMHASH	23873	58593	268740	25201	1	1	750	
+carlos_join6.rq	GCSYMHASH	23873	66210	268740	25201	1	1	750	
+carlos_join6.rq	NESTED	TIMED OUT	750
+carlos_join6.rq	NESTED	TIMED OUT	750
+carlos_join6.rq	NESTED	TIMED OUT	750
+carlos_join7.rq	VALUES	-1	10346	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join7.rq	VALUES	-1	10441	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join7.rq	VALUES	-1	14650	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join7.rq	VALUES	17543	39966	35636	17545	1	143	250	
+carlos_join7.rq	VALUES	17543	60692	35636	17545	1	143	250	
+carlos_join7.rq	VALUES	17543	54035	35636	17545	1	143	250	
+carlos_join7.rq	VALUES	17543	65503	35636	17545	1	72	500	
+carlos_join7.rq	VALUES	17543	33073	35636	17545	1	72	500	
+carlos_join7.rq	VALUES	17543	30181	35636	17545	1	72	500	
+carlos_join7.rq	VALUES	17543	21582	35636	17545	1	48	750	
+carlos_join7.rq	VALUES	17543	16357	35636	17545	1	48	750	
+carlos_join7.rq	VALUES	17543	20682	35636	17545	1	48	750	
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join7.rq	FILTER	17545	20939	35636	17601	1	143	250	
+carlos_join7.rq	FILTER	17545	22132	35636	17601	1	143	250	
+carlos_join7.rq	FILTER	17545	19576	35636	17601	1	143	250	
+carlos_join7.rq	FILTER	17545	13420	35636	17601	1	72	500	
+carlos_join7.rq	FILTER	17545	13672	35636	17601	1	72	500	
+carlos_join7.rq	FILTER	17545	14657	35636	17601	1	72	500	
+carlos_join7.rq	FILTER	17545	12709	35636	17601	1	48	750	
+carlos_join7.rq	FILTER	17545	13068	35636	17601	1	48	750	
+carlos_join7.rq	FILTER	17545	12609	35636	17601	1	48	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join7.rq	UNION	-1	6964	35636	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join7.rq	UNION	-1	6137	35636	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join7.rq	UNION	-1	5768	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join7.rq	UNION	17545	23305	35636	17601	1	143	250	
+carlos_join7.rq	UNION	17545	22397	35636	17601	1	143	250	
+carlos_join7.rq	UNION	17545	22160	35636	17601	1	143	250	
+carlos_join7.rq	UNION	17545	15390	35636	17601	1	72	500	
+carlos_join7.rq	UNION	17545	24730	35636	17601	1	72	500	
+carlos_join7.rq	UNION	17545	19765	35636	17601	1	72	500	
+carlos_join7.rq	UNION	17545	15281	35636	17601	1	48	750	
+carlos_join7.rq	UNION	17545	13331	35636	17601	1	48	750	
+carlos_join7.rq	UNION	17545	13638	35636	17601	1	48	750	
+carlos_join7.rq	SYMHASHP	17545	4504	35636	33134	1	1	-1	
+carlos_join7.rq	SYMHASHP	17545	4229	35636	33134	1	1	-1	
+carlos_join7.rq	SYMHASHP	17545	4164	35636	33134	1	1	-1	
+carlos_join7.rq	SYMHASHP	TIMED OUT	250
+carlos_join7.rq	SYMHASHP	TIMED OUT	250
+carlos_join7.rq	SYMHASHP	TIMED OUT	250
+carlos_join7.rq	SYMHASHP	TIMED OUT	500
+carlos_join7.rq	SYMHASHP	TIMED OUT	500
+carlos_join7.rq	SYMHASHP	TIMED OUT	500
+carlos_join7.rq	SYMHASHP	17545	508927	35636	33134	1	1	750	
+carlos_join7.rq	SYMHASHP	17545	2012441	35636	33134	1	1	750	
+carlos_join7.rq	SYMHASHP	TIMED OUT	750
+carlos_join7.rq	SERVICE	17545	14667	17545	0	-1	-1	750	
+carlos_join7.rq	SERVICE	17545	23099	17545	0	-1	-1	750	
+carlos_join7.rq	SERVICE	17545	267757	17545	0	-1	-1	750	
+carlos_join7.rq	SYMHASH	17545	23539	35636	33134	1	1	750	
+carlos_join7.rq	SYMHASH	17545	14997	35636	33134	1	1	750	
+carlos_join7.rq	SYMHASH	17545	13177	35636	33134	1	1	750	
+carlos_join7.rq	GCSYMHASH	17545	16015	17817	33060	1	1	750	
+carlos_join7.rq	GCSYMHASH	17545	14461	17817	33060	1	1	750	
+carlos_join7.rq	GCSYMHASH	17545	12660	17817	33060	1	1	750	
+carlos_join7.rq	NESTED	TIMED OUT	750
+carlos_join7.rq	NESTED	TIMED OUT	750
+carlos_join7.rq	NESTED	TIMED OUT	750
+carlos_join8.rq	VALUES	-1	44632	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join8.rq	VALUES	-1	14033	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join8.rq	VALUES	-1	14107	268743	-1	1	-1	-1	QueryExceptionHTTP
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join8.rq	VALUES	TIMED OUT	500
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join8.rq	FILTER	47742	63845	268743	47742	1	184	250	
+carlos_join8.rq	FILTER	47742	61654	268743	47742	1	184	250	
+carlos_join8.rq	FILTER	47742	56814	268743	47742	1	184	250	
+carlos_join8.rq	FILTER	47742	45759	268743	47742	1	94	500	
+carlos_join8.rq	FILTER	47742	74536	268743	47742	1	94	500	
+carlos_join8.rq	FILTER	47742	46411	268743	47742	1	94	500	
+carlos_join8.rq	FILTER	47742	49035	268743	47742	1	63	750	
+carlos_join8.rq	FILTER	47742	45699	268743	47742	1	63	750	
+carlos_join8.rq	FILTER	47742	42654	268743	47742	1	63	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join8.rq	UNION	-1	31950	268743	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join8.rq	UNION	-1	28580	268743	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Protocol wrong type for socket (Write failed): Unexpected error making the query: java.net.SocketException: Protocol wrong type for socket (Write failed)
+Caused by: java.net.SocketException: Protocol wrong type for socket (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join8.rq	UNION	-1	25277	268743	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join8.rq	UNION	47742	151833	268743	48633	1	1075	250	
+carlos_join8.rq	UNION	47742	130684	268743	48633	1	1075	250	
+carlos_join8.rq	UNION	47742	129733	268743	48633	1	1075	250	
+carlos_join8.rq	UNION	47742	85090	268743	48186	1	538	500	
+carlos_join8.rq	UNION	47742	81026	268743	48186	1	538	500	
+carlos_join8.rq	UNION	47742	86979	268743	48186	1	538	500	
+carlos_join8.rq	UNION	47742	65120	268743	48038	1	359	750	
+carlos_join8.rq	UNION	47742	79556	268743	48038	1	359	750	
+carlos_join8.rq	UNION	47742	91755	268743	48038	1	359	750	
+carlos_join8.rq	SYMHASHP	47742	24303	268743	24214	1	1	-1	
+carlos_join8.rq	SYMHASHP	47742	22528	268743	24214	1	1	-1	
+carlos_join8.rq	SYMHASHP	47742	21461	268743	24214	1	1	-1	
+carlos_join8.rq	SYMHASHP	47742	492750	268743	24214	1	1	250	
+carlos_join8.rq	SYMHASHP	47742	453223	268743	24214	1	1	250	
+carlos_join8.rq	SYMHASHP	47742	473715	268743	24214	1	1	250	
+carlos_join8.rq	SYMHASHP	47742	311333	268743	24214	1	1	500	
+carlos_join8.rq	SYMHASHP	47742	285166	268743	24214	1	1	500	
+carlos_join8.rq	SYMHASHP	47742	215000	268743	24214	1	1	500	
+carlos_join8.rq	SYMHASHP	47742	176281	268743	24214	1	1	750	
+carlos_join8.rq	SYMHASHP	47742	204886	268743	24214	1	1	750	
+carlos_join8.rq	SYMHASHP	47742	161555	268743	24214	1	1	750	
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+carlos_join8.rq	SYMHASH	47742	29352	268743	24214	1	1	750	
+carlos_join8.rq	SYMHASH	47742	24348	268743	24214	1	1	750	
+carlos_join8.rq	SYMHASH	47742	25172	268743	24214	1	1	750	
+carlos_join8.rq	GCSYMHASH	47742	38856	268740	24211	1	1	750	
+carlos_join8.rq	GCSYMHASH	47742	35610	268740	24211	1	1	750	
+carlos_join8.rq	GCSYMHASH	47742	38628	268740	24211	1	1	750	
+carlos_join8.rq	NESTED	TIMED OUT	750
+carlos_join8.rq	NESTED	TIMED OUT	750
+carlos_join8.rq	NESTED	TIMED OUT	750
+carlos_join9.rq	VALUES	-1	6259	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join9.rq	VALUES	-1	3377	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join9.rq	VALUES	-1	3339	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join9.rq	VALUES	17543	21534	35636	17545	1	143	250	
+carlos_join9.rq	VALUES	17543	18564	35636	17545	1	143	250	
+carlos_join9.rq	VALUES	17543	19330	35636	17545	1	143	250	
+carlos_join9.rq	VALUES	17543	13962	35636	17545	1	72	500	
+carlos_join9.rq	VALUES	17543	13864	35636	17545	1	72	500	
+carlos_join9.rq	VALUES	17543	13026	35636	17545	1	72	500	
+carlos_join9.rq	VALUES	17543	12986	35636	17545	1	48	750	
+carlos_join9.rq	VALUES	17543	12080	35636	17545	1	48	750	
+carlos_join9.rq	VALUES	17543	10694	35636	17545	1	48	750	
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+java.lang.StackOverflowError
+carlos_join9.rq	FILTER	17545	20759	35636	17601	1	143	250	
+carlos_join9.rq	FILTER	17545	19881	35636	17601	1	143	250	
+carlos_join9.rq	FILTER	17545	21608	35636	17601	1	143	250	
+carlos_join9.rq	FILTER	17545	18586	35636	17601	1	72	500	
+carlos_join9.rq	FILTER	17545	18372	35636	17601	1	72	500	
+carlos_join9.rq	FILTER	17545	19001	35636	17601	1	72	500	
+carlos_join9.rq	FILTER	17545	13704	35636	17601	1	48	750	
+carlos_join9.rq	FILTER	17545	13218	35636	17601	1	48	750	
+carlos_join9.rq	FILTER	17545	13729	35636	17601	1	48	750	
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join9.rq	UNION	-1	7151	35636	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Protocol wrong type for socket (Write failed): Unexpected error making the query: java.net.SocketException: Protocol wrong type for socket (Write failed)
+Caused by: java.net.SocketException: Protocol wrong type for socket (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join9.rq	UNION	-1	6521	35636	-1	1	-1	-1	QueryExceptionHTTP
+HttpException: java.net.SocketException: Broken pipe (Write failed): Unexpected error making the query: java.net.SocketException: Broken pipe (Write failed)
+Caused by: java.net.SocketException: Broken pipe (Write failed)EntityEnclosingRequestWrapper.java:108)
+	... 16 more
+carlos_join9.rq	UNION	-1	7167	35636	-1	1	-1	-1	QueryExceptionHTTP
+carlos_join9.rq	UNION	17545	26447	35636	17601	1	143	250	
+carlos_join9.rq	UNION	17545	25815	35636	17601	1	143	250	
+carlos_join9.rq	UNION	17545	24443	35636	17601	1	143	250	
+carlos_join9.rq	UNION	17545	19826	35636	17601	1	72	500	
+carlos_join9.rq	UNION	17545	27203	35636	17601	1	72	500	
+carlos_join9.rq	UNION	17545	20637	35636	17601	1	72	500	
+carlos_join9.rq	UNION	17545	15664	35636	17601	1	48	750	
+carlos_join9.rq	UNION	17545	13668	35636	17601	1	48	750	
+carlos_join9.rq	UNION	17545	14882	35636	17601	1	48	750	
+carlos_join9.rq	SYMHASHP	17545	5084	35636	33134	1	1	-1	
+carlos_join9.rq	SYMHASHP	17545	5837	35636	33134	1	1	-1	
+carlos_join9.rq	SYMHASHP	17545	6921	35636	33134	1	1	-1	
+carlos_join9.rq	SYMHASHP	TIMED OUT	250
+carlos_join9.rq	SYMHASHP	TIMED OUT	250
+carlos_join9.rq	SYMHASHP	TIMED OUT	250
+carlos_join9.rq	SYMHASHP	TIMED OUT	500
+carlos_join9.rq	SYMHASHP	TIMED OUT	500
+carlos_join9.rq	SYMHASHP	TIMED OUT	500
+carlos_join9.rq	SYMHASHP	17545	521551	35636	33134	1	1	750	
+carlos_join9.rq	SYMHASHP	17545	480345	35636	33134	1	1	750	
+carlos_join9.rq	SYMHASHP	17545	479824	35636	33134	1	1	750	
+carlos_join9.rq	SERVICE	17545	6650	17545	0	-1	-1	750	
+carlos_join9.rq	SERVICE	17545	4988	17545	0	-1	-1	750	
+carlos_join9.rq	SERVICE	17545	4193	17545	0	-1	-1	750	
+carlos_join9.rq	SYMHASH	17545	5916	35636	33134	1	1	750	
+carlos_join9.rq	SYMHASH	17545	6262	35636	33134	1	1	750	
+carlos_join9.rq	SYMHASH	17545	5749	35636	33134	1	1	750	
+carlos_join9.rq	GCSYMHASH	17545	7952	17817	33060	1	1	750	
+carlos_join9.rq	GCSYMHASH	17545	9188	17817	33060	1	1	750	
+carlos_join9.rq	GCSYMHASH	17545	7930	17817	33060	1	1	750	
+carlos_join9.rq	NESTED	TIMED OUT	750
+carlos_join9.rq	NESTED	TIMED OUT	750
+carlos_join9.rq	NESTED	TIMED OUT	750

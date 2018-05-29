@@ -1,0 +1,256 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join3.rq, -j, SYMHASHP, -o, bench.bio.results, -b, 250])
+ Joins [SYMHASHP]
+250
+250
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?s  <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+            <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join
+        FILTER ( ?o < str(80) )
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+               <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed ;
+               <http://bio2rdf.org/hgnc_vocabulary:x-geneid>  ?geneid ;
+               <http://bio2rdf.org/hgnc_vocabulary:approved_symbol>  "ZYX"
+      }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?s  <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+      <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join
+  FILTER ( ?o < str(80) )
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+         <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed ;
+         <http://bio2rdf.org/hgnc_vocabulary:x-geneid>  ?geneid ;
+         <http://bio2rdf.org/hgnc_vocabulary:approved_symbol>  "ZYX"
+})
+___
+RUNNING SYMHASHP for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join3.rq
+Symhash with page of 250 round 0
+
+
+Symhash with page of 250 round 1
+Done false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Done true
+[JOIN] SYMHASH [RESULTS] 2 [TIME] -1 [EXCEPTION] 
+ carlos_join3.rq,SYMHASHP,2,1683,16753,2,1,1,250,
+=======[END] (4381 ms)
+ 

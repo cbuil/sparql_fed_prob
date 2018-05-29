@@ -1,0 +1,4 @@
+=======[START] ([-l, -e, http://localhost:3030/mgi/sparql, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join1.rq, -j, VALUES, -o, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/results])
+ Joins [VALUES]
+null
+-1

@@ -1,13 +1,7 @@
 package join;
 
-import java.net.URI;
-import java.util.Set;
-
-import utils.SplitQuery;
 import bench.BenchmarkResult;
-
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.sparql.engine.binding.Binding;
+import utils.SplitQuery;
 
 public enum JoinOps {
 		NESTED(new NestedLoop()),

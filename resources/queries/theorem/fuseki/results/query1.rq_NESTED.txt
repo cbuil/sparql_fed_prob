@@ -1,0 +1,9 @@
+#JOIN results time ep0_calls ep1_calls
+6,117,4,6,1,4,-1,
+#Bindings
+( ?p = <http://example.org/c> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/a> ) ( ?person2 = <http://example.org/b> )
+( ?p = <http://example.org/c> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/c> ) ( ?person2 = <http://example.org/b> )
+( ?p = <http://example.org/c> ) ( ?person2 = <http://example.org/a> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/d> )
+( ?p = <http://example.org/c> ) ( ?person2 = <http://example.org/b> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/d> )
+( ?p = <http://example.org/a> ) ( ?person2 = <http://example.org/a> ) ( ?o = <http://example.org/b> ) -> ( ?person = <http://example.org/d> )
+( ?p = <http://example.org/c> ) ( ?person2 = <http://example.org/e> ) ( ?o = <http://example.org/d> ) -> ( ?person = <http://example.org/d> )

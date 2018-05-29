@@ -1,0 +1,16 @@
+# high selectivity from linkedmdb and high selectivity from dbpedia
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+select * where {
+	SERVICE<http://localhost:3030/linkedmdb/sparql>{
+		?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.linkedmdb.org/resource/movie/film> .
+		?s <http://www.w3.org/2000/01/rdf-schema#label> ?label .
+		?s <http://www.w3.org/2002/07/owl#sameAs> ?dbpedialink .
+		?s <http://data.linkedmdb.org/resource/movie/director> <http://data.linkedmdb.org/resource/director/8600> .
+	}
+	SERVICE<http://localhost:3030/dbpedia38/sparql>{
+		?dbpedialink rdf:type <http://dbpedia.org/ontology/Film> .
+		?dbpedialink <http://dbpedia.org/ontology/director>  <http://dbpedia.org/resource/Mike_Nichols>
+	}
+}

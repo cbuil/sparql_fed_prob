@@ -1,0 +1,11 @@
+# from MGI to HGCN: low selectivity from MGI and low selectivity from HGCN
+
+select * where {
+  service<http://localhost:8080/rdf4j-server/repositories/mgi> {
+  ?o <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?join .
+  ?o <http://bio2rdf.org/mgi_vocabulary:xSymbol> ?symbol 
+}
+  service<http://localhost:8080/rdf4j-server/repositories/hgnc> {
+    ?join <http://bio2rdf.org/hgnc_vocabulary:status>	"Approved" .
+  }
+}

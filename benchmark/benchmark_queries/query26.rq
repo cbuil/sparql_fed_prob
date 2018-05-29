@@ -1,0 +1,18 @@
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+SELECT   DISTINCT ?patient ?tumorType ?exonValue
+WHERE
+{
+SERVICE <http://localhost:3034/LinkedTCGA-A/query>  
+   {
+	?s tcga:bcr_patient_barcode ?patient.
+	?patient tcga:disease_acronym <http://tcga.deri.ie/lusc>.
+	?patient tcga:tumor_weight ?weight.
+	?patient tcga:tumor_type ?tumorType. 
+	}
+	SERVICE <http://localhost:3041/LinkedTCGA-E/query>  
+	{ 
+	?patient tcga:result ?results.
+	?results tcga:RPKM  ?exonValue.
+	}
+FILTER(?weight <= 55)
+}

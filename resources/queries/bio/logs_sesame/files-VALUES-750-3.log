@@ -1,0 +1,6 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/files, -j, VALUES, -o, bench.bio.results, -b, 750])
+ Joins [VALUES]
+750
+750
+=======[END] (20 ms)
+ 

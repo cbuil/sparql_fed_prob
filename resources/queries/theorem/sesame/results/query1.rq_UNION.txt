@@ -1,0 +1,5 @@
+#JOIN results time ep0_calls ep1_calls
+2,72,4,2,1,2,-1,
+#Bindings
+( ?p = <http://example.org/c> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/a> ) ( ?person2 = <http://example.org/b> )
+( ?p = <http://example.org/c> ) ( ?o = <http://example.org/a> ) -> ( ?person = <http://example.org/c> ) ( ?person2 = <http://example.org/b> )

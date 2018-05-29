@@ -1,0 +1,7 @@
+select * where {
+  service<http://localhost:8890/sparql> {
+    GRAPH <http://bio2rdf.org/mgi> { <http://bio2rdf.org/mgi:1915545> ?p ?join . }
+}
+  service<http://localhost:8890/sparql> {
+    GRAPH <http://bio2rdf.org/hgnc> { ?join <http://bio2rdf.org/hgnc_vocabulary:status>	"Approved" . } }
+  }

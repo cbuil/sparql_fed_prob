@@ -1,0 +1,71 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join3.rq, -j, UNION, -o, bench.bio.results, -b, 750])
+ Joins [UNION]
+750
+750
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?s  <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+            <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join
+        FILTER ( ?o < str(80) )
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+               <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed ;
+               <http://bio2rdf.org/hgnc_vocabulary:x-geneid>  ?geneid ;
+               <http://bio2rdf.org/hgnc_vocabulary:approved_symbol>  "ZYX"
+      }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?s  <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+      <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join
+  FILTER ( ?o < str(80) )
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+         <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed ;
+         <http://bio2rdf.org/hgnc_vocabulary:x-geneid>  ?geneid ;
+         <http://bio2rdf.org/hgnc_vocabulary:approved_symbol>  "ZYX"
+})
+___
+RUNNING UNION for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join3.rq
+P1:SELECT  *
+WHERE
+  { ?s  <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+        <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join
+    FILTER ( ?o < str(80) )
+  }
+
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+Running batch
+[JOIN] UNION [RESULTS] 2 [TIME] -1 [EXCEPTION] 
+ carlos_join3.rq,UNION,2,8516,16753,2,1,23,750,
+=======[END] (11328 ms)
+ 

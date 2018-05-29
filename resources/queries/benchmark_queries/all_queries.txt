@@ -1,0 +1,888 @@
+############################################################################
+
+                     Simple Queries 
+
+############################S1##############################################
+Find all information about Barack Obama.
+#Results: 90
+--------------------------------S1 SPARQL 1.1 ----------------------------------------
+SELECT ?predicate ?object WHERE { 
+{ 
+  SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>  {  <http://dbpedia.org/resource/Barack_Obama> ?predicate ?object   } 
+}
+ UNION 
+ { 
+    SERVICE <http://newyork-times.system.ip.address:8897/sparql> 
+     {
+       ?subject <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Barack_Obama> .
+        ?subject ?predicate ?object
+      }
+   } 
+}
+
+##############################S2########################################
+Return Barack Obama's party membership and news pages
+#Results: 1
+
+--------------------------------S2 SPARQL 1.1 ----------------------------------------
+SELECT ?party ?page  WHERE 
+{ SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> { <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/party> ?party .} 
+  SERVICE <http://newyork-times.system.ip.address:8897/sparql> 
+  { 
+    ?x <http://data.nytimes.com/elements/topicPage> ?page . 
+    ?x <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Barack_Obama> .
+    }
+}
+
+##############################S3########################################
+Return for all US presidents their party membership and news pages about them.
+#Results: 2
+
+--------------------------------S3 SPARQL 1.1 ----------------------------------------
+SELECT ?president ?party ?page 
+WHERE { 
+  SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> 
+  {
+     ?president <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/President> .
+     ?president <http://dbpedia.org/ontology/nationality> <http://dbpedia.org/resource/United_States> .
+     ?president <http://dbpedia.org/ontology/party> ?party .
+     }
+   SERVICE <http://newyork-times.system.ip.address:8897/sparql> 
+   {
+    ?x <http://data.nytimes.com/elements/topicPage> ?page .
+    ?x <http://www.w3.org/2002/07/owl#sameAs> ?president .
+    }
+ }
+
+##############################S4########################################
+Find all news about actors starring in a movie with name Tarzan.
+#Results: 1
+
+--------------------------------S4 SPARQL 1.1 ----------------------------------------
+SELECT ?actor ?news 
+WHERE
+ {
+   SERVICE <http://linked-mdb.system.ip.address:8896/sparql> 
+   {
+   ?film <http://purl.org/dc/terms/title> 'Tarzan' . 
+   ?film <http://data.linkedmdb.org/resource/movie/actor> ?actor .
+   ?actor <http://www.w3.org/2002/07/owl#sameAs> ?x.
+   } 
+   SERVICE <http://newyork-times.system.ip.address:8897/sparql> 
+   {
+   ?y <http://www.w3.org/2002/07/owl#sameAs> ?x .
+   ?y <http://data.nytimes.com/elements/topicPage> ?news
+   }
+ }
+
+##############################S5########################################
+ Find the director and the genre of movies directed by Italians.
+#Results: 2
+
+--------------------------------S5 SPARQL 1.1 ----------------------------------------
+SELECT ?film ?director ?genre 
+WHERE 
+{
+  SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>
+  { 
+  ?film <http://dbpedia.org/ontology/director>  ?director .   
+  ?director <http://dbpedia.org/ontology/nationality> <http://dbpedia.org/resource/Italy> .
+  } 
+  SERVICE <http://linked-mdb.system.ip.address:8896/sparql>
+  { 
+  ?x <http://www.w3.org/2002/07/owl#sameAs> ?film .
+  ?x <http://data.linkedmdb.org/resource/movie/genre> ?genre .
+  }
+}
+
+##############################S6########################################
+Find all musical artists based in Germany.
+#Results: 11
+
+--------------------------------S6 SPARQL 1.1 ----------------------------------------
+SELECT ?name ?location 
+WHERE {
+{
+SERVICE <http://jamendo.system.ip.address:8894/sparql> {?artist <http://xmlns.com/foaf/0.1/name> ?name . ?artist <http://xmlns.com/foaf/0.1/based_near> ?location .}
+}
+UNION
+{
+SERVICE <http://swdfood.system.ip.address:8898/sparql> {?artist <http://xmlns.com/foaf/0.1/name> ?name .?artist <http://xmlns.com/foaf/0.1/based_near> ?location .}
+ }
+ {
+SERVICE <http://geonames.system.ip.address:8893/sparql> {?location <http://www.geonames.org/ontology#parentFeature> ?germany . ?germany <http://www.geonames.org/ontology#name> 'Federal Republic of Germany'}
+}
+UNION
+{
+SERVICE <http://nyt.system.ip.address:8897/sparql> {?location <http://www.geonames.org/ontology#parentFeature> ?germany . ?germany <http://www.geonames.org/ontology#name> 'Federal Republic of Germany'}
+}
+}
+
+##############################S7########################################
+Find all news about locations in the state of California.
+#Results: 1
+
+--------------------------------S7 SPARQL 1.1 ----------------------------------------
+SELECT ?location ?news 
+ WHERE 
+{
+  {
+  SERVICE <http://geonames.system.ip.address:8893/sparql>  { ?location <http://www.geonames.org/ontology#parentFeature> ?parent .  ?parent <http://www.geonames.org/ontology#name> 'California' . }
+  }
+UNION
+ {
+ SERVICE <http://nyt.system.ip.address:8897/sparql>  { ?location <http://www.geonames.org/ontology#parentFeature> ?parent .  ?parent <http://www.geonames.org/ontology#name> 'California' . }
+ }
+ SERVICE <http://nyt.system.ip.address:8897/sparql> 
+   {
+   ?y <http://www.w3.org/2002/07/owl#sameAs> ?location .
+   ?y <http://data.nytimes.com/elements/topicPage> ?news 
+  }
+}
+
+##############################S8########################################
+Find all drugs from Drugbank and DBpedia with their melting points.
+#Results: 1159
+
+--------------------------------S8 SPARQL 1.1 ----------------------------------------
+SELECT ?drug ?melt WHERE
+ { 
+    {
+      SERVICE <http://drugbank.system.ip.address:8892/sparql> {?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/meltingPoint> ?melt.} 
+    }
+    UNION
+    {
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>{  ?drug <http://dbpedia.org/ontology/Drug/meltingPoint> ?melt . }
+    }
+}
+
+##############################S9########################################
+Find all properties of Caffeine in Drugbank. Find all entities from all available databases describing Caffeine, 
+return the union of all properties of any of these entities.
+#Results: 333
+
+--------------------------------S9 SPARQL 1.1 ----------------------------------------
+SELECT ?predicate ?object
+ WHERE 
+ {
+ { 
+   SERVICE <http://drugbank.system.ip.address:8892/sparql> { <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugs/DB00201> ?predicate ?object . }
+ }
+   UNION
+   {
+   SERVICE <http://drugbank.system.ip.address:8892/sparql>
+   {
+       <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugs/DB00201> <http://www.w3.org/2002/07/owl#sameAs> ?caff .
+    } 
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>{ ?caff ?predicate ?object . }
+    }
+}
+
+##############################S10########################################
+For all drugs in DBpedia, find all drugs they interact with, along with an explanation of the interaction.
+#Results: 9054
+
+--------------------------------S10 SPARQL 1.1 ----------------------------------------
+SELECT  ?Drug ?IntDrug ?IntEffect 
+WHERE 
+{  
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> {?Drug <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Drug> .}
+    SERVICE <http://drugbank.system.ip.address:8892/sparql>
+    {  
+    ?y <http://www.w3.org/2002/07/owl#sameAs> ?Drug . 
+    ?Int <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/interactionDrug1> ?y .   
+    ?Int <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/interactionDrug2> ?IntDrug . 
+    ?Int <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/text> ?IntEffect .
+    }
+}
+
+##############################S11########################################
+Find all the equations of reactions related to drugs from category Cathartics and their drug description.
+#Results: 3
+
+--------------------------------S11 SPARQL 1.1 ----------------------------------------
+SELECT ?drugDesc ?cpd ?equation 
+WHERE 
+{
+   SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+   {
+     ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/drugCategory> <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugcategory/cathartics> .
+     ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/keggCompoundId> ?cpd . 
+     ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/description> ?drugDesc .
+     }
+     SERVICE <http://kegg.system.ip.address:8895/sparql> 
+     { 
+      ?enzyme <http://bio2rdf.org/ns/kegg#xSubstrate> ?cpd .
+      ?enzyme <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://bio2rdf.org/ns/kegg#Enzyme> .
+      ?reaction <http://bio2rdf.org/ns/kegg#xEnzyme> ?enzyme .
+      ?reaction <http://bio2rdf.org/ns/kegg#equation> ?equation . 
+      }
+}
+
+##############################S12########################################
+Find all drugs from Drugbank, together with the URL of the corresponding page stored in KEGG and the URL to the image derived from ChEBI.
+#Results: 393
+
+--------------------------------S12 SPARQL 1.1 ----------------------------------------
+SELECT $drug $keggUrl $chebiImage 
+WHERE 
+{
+  SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+  {
+     $drug <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/drugs> . 
+     $drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/keggCompoundId> $keggDrug .
+     $drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/genericName> $drugBankName .
+   } 
+   SERVICE <http://kegg.system.ip.address:8895/sparql> { $keggDrug <http://bio2rdf.org/ns/bio2rdf#url> $keggUrl .}
+   SERVICE <http://ChEBI.system.ip.address:8890/sparql> 
+   {
+     $chebiDrug <http://purl.org/dc/elements/1.1/title> $drugBankName . 
+     $chebiDrug <http://bio2rdf.org/ns/bio2rdf#image> $chebiImage .
+    }
+  }
+
+##############################S13########################################
+Find KEGG drug names of all drugs in Drugbank belonging to category Micronutrient.
+#Results: 28
+
+--------------------------------S13 SPARQL 1.1 ----------------------------------------
+SELECT ?drug ?title 
+WHERE 
+{ 
+   SERVICE <http://drugbank.system.ip.address:8892/sparql>
+   {
+    ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/drugCategory> <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugcategory/micronutrient> . 
+    ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/casRegistryNumber> ?id .
+    } 
+    SERVICE <http://kegg.system.ip.address:8895/sparql>
+    {
+    ?keggDrug <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://bio2rdf.org/ns/kegg#Drug> .
+    ?keggDrug <http://bio2rdf.org/ns/bio2rdf#xRef> ?id . 
+    ?keggDrug <http://purl.org/dc/elements/1.1/title> ?title .
+    }
+}
+
+##############################S14########################################
+Find all drugs that affect humans and mammals. For those having a description of their biotransformation, also return this description. 
+#Results: 1620
+
+--------------------------------S14 SPARQL 1.1 ----------------------------------------
+SELECT $drug $transform $mass
+ WHERE 
+ { 
+    {
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+    { 
+      $drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/affectedOrganism>  'Humans and other mammals'. 
+      $drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/casRegistryNumber> $cas . 
+      }
+    SERVICE <http://kegg.system.ip.address:8895/sparql>
+    { 
+      $keggDrug <http://bio2rdf.org/ns/bio2rdf#xRef> $cas . 
+      $keggDrug <http://bio2rdf.org/ns/bio2rdf#mass> $mass.
+     }
+    }     
+    OPTIONAL 
+    {
+    SERVICE <http://drugbank.system.ip.address:8892/sparql>{ $drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/biotransformation> $transform . }
+    } 
+}
+
+##########################################################################
+
+                        Complex Queries 
+
+##################################C1########################################
+
+Find the equations of chemical reactions and reaction title related to drugs with drug description and drug type 'smallMolecule'.
+Show only those whose molecular weight average larger then 114.
+#Results:1000
+
+--------------------------------C1 SPARQL 1.1 ----------------------------------------
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/> 
+PREFIX drugtype: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugtype/>
+PREFIX kegg: <http://bio2rdf.org/ns/kegg#>
+PREFIX chebi: <http://bio2rdf.org/ns/bio2rdf#>
+PREFIX purl: <http://purl.org/dc/elements/1.1/>
+SELECT distinct ?drug   ?drugDesc ?molecularWeightAverage   ?compound   ?ReactionTitle    ?ChemicalEquation 
+WHERE
+{
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+    {
+    ?drug           drugbank:description    ?drugDesc .
+    ?drug           drugbank:drugType       drugtype:smallMolecule .
+    ?drug           drugbank:keggCompoundId ?compound. 
+    }
+    SERVICE <http://kegg.system.ip.address:8895/sparql> 
+    {
+    ?enzyme         kegg:xSubstrate         ?compound .
+    ?Chemicalreaction   kegg:xEnzyme        ?enzyme .
+    ?Chemicalreaction   kegg:equation       ?ChemicalEquation .
+    ?Chemicalreaction   purl:title          ?ReactionTitle
+    }
+    OPTIONAL 
+    { 
+        SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+        { 
+            ?drug drugbank:molecularWeightAverage ?molecularWeightAverage.
+            FILTER (?molecularWeightAverage > 114) 
+        }
+    }
+} 
+LIMIT 1000
+##############################C2######################################
+
+Find all the drugs with their mass and chebiIupacName optionally the Inchi values reteriving from two sources are equal.
+#Results: 4
+
+--------------------------------C2 SPARQL 1.1 ----------------------------------------
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX kegg: <http://bio2rdf.org/ns/kegg#>
+PREFIX chebi: <http://bio2rdf.org/ns/chebi#>
+PREFIX purl: <http://purl.org/dc/elements/1.1/>
+PREFIX bio2RDF: <http://bio2rdf.org/ns/bio2rdf#>
+SELECT ?drug ?keggmass ?chebiIupacName 
+WHERE 
+{
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+    { 
+    ?drug rdf:type drugbank:drugs .
+    ?drug drugbank:keggCompoundId ?keggDrug .
+    }
+    SERVICE <http://kegg.system.ip.address:8895/sparql> {?keggDrug bio2RDF:mass ?keggmass .}
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> {?drug drugbank:genericName ?drugBankName .}
+    SERVICE <http://ChEBI.system.ip.address:8890/sparql> 
+    {
+    ?chebiDrug purl:title ?drugBankName .
+    ?chebiDrug chebi:iupacName ?chebiIupacName .
+    }
+OPTIONAL { 
+SERVICE <http://drugbank.system.ip.address:8892/sparql> {?drug drugbank:inchiIdentifier ?drugbankInchi .}
+SERVICE <http://ChEBI.system.ip.address:8890/sparql> {?chebiDrug bio2RDF:inchi ?chebiInchi.}
+FILTER (?drugbankInchi = ?chebiInchi) 
+}
+}
+#################################C3####################################
+
+Find the names of music artists with the news about locations where these artist are based
+#Results: 9
+
+--------------------------------C3 SPARQL 1.1 ----------------------------------------
+PREFIX foaf:        <http://xmlns.com/foaf/0.1/>
+PREFIX geonames:    <http://www.geonames.org/ontology#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX mo:          <http://purl.org/ontology/mo/>
+PREFIX nytimes:         <http://data.nytimes.com/elements/>
+SELECT DISTINCT ?artist ?name ?location ?anylocation
+WHERE {
+    SERVICE <http://jamendo.system.ip.address:8894/sparql>
+    { 
+        ?artist a mo:MusicArtist ;
+        foaf:name ?name ;
+        foaf:based_near ?location .
+    }
+    {
+        SERVICE <http://geonames.system.ip.address:8893/sparql>
+        { 
+        ?location geonames:parentFeature ?locationName .
+        ?locationName geonames:name ?anylocation .
+        }
+    }
+    UNION
+     {
+     SERVICE <http://nyt.system.ip.address:8897/sparql>
+        { 
+        ?location geonames:parentFeature ?locationName .
+        ?locationName geonames:name ?anylocation .}
+     }   
+SERVICE <http://nyt.system.ip.address:8897/sparql>
+        { 
+        ?nytLocation owl:sameAs ?location.
+       ?nytLocation nytimes:topicPage ?news 
+       }
+    
+OPTIONAL
+{
+  SERVICE <http://geonames.system.ip.address:8893/sparql> {    ?locationName geonames:name 'Islamic Republic of Afghanistan' .}
+}
+}
+###############################C4######################################
+
+Find the name of the place with its country name, countryCode, its parentFeatures, its locationMap, total population, its longitude, its latitude 
+#Results: 50
+
+--------------------------------C4 SPARQL 1.1 ----------------------------------------
+prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+prefix geonames: <http://www.geonames.org/ontology#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+Prefix dbpedia: <http://dbpedia.org/ontology/>
+select distinct ?countryName ?countryCode ?locationMap ?population ?longitude ?latitude ?nationalAnthem ?foundingDate ?largestCity ?ethnicGroup ?motto
+{
+    { 
+      SERVICE <http://nyt.system.ip.address:8897/sparql>
+      { 
+       ?NYTplace geonames:name ?countryName;
+        geonames:countryCode ?countryCode;
+        geonames:population  ?population;
+        geo:long   ?longitude;
+        geo:lat     ?latitude;
+        owl:sameAs   ?geonameplace.
+      }
+    }
+      UNION
+      {
+      SERVICE <http://geonames.system.ip.address:8893/sparql>
+      { 
+       ?NYTplace geonames:name ?countryName;
+        geonames:countryCode ?countryCode;
+        geonames:population  ?population;
+        geo:long   ?longitude;
+        geo:lat     ?latitude;
+        owl:sameAs   ?geonameplace.
+       }
+      }
+OPTIONAL
+{
+    SERVICE <http://dbpedia.system.ip.address:8891/sparql>
+        {
+        ?geonameplace dbpedia:capital ?capital;
+        dbpedia:anthem ?nationalAnthem;
+        dbpedia:foundingDate ?foundingDate;
+        dbpedia:largestCity ?largestCity;
+        dbpedia:ethnicGroup ?ethnicGroup;
+        dbpedia:motto ?motto.
+        }
+}
+}
+LIMIT 50
+
+################################C5######################################
+
+The names of the actors, their data of birth, their Spouse name who worked in any movie with movie name, its title and date of movie release.
+#Results: 500
+
+--------------------------------C5 SPARQL 1.1 ----------------------------------------
+PREFIX linkedmdb: <http://data.linkedmdb.org/resource/movie/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?actor ?movie ?movieTitle ?movieDate ?birthDate ?spouseName
+{
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> 
+    {
+        ?actor rdfs:label ?actor_name_en;
+        dbpedia:birthDate ?birthDate ;
+        dbpedia:spouse ?spouseURI .
+        ?spouseURI rdfs:label ?spouseName .
+    }
+    SERVICE <http://linked-mdb.system.ip.address:8896/sparql> 
+    { 
+    ?imdbactor linkedmdb:actor_name ?actor_name.
+    ?movie linkedmdb:actor ?imdbactor ;
+    dcterms:title ?movieTitle ;
+    dcterms:date ?movieDate
+    }
+FILTER(STR(?actor_name_en) = STR(?actor_name))
+} 
+limit 500
+################################C6###################################
+
+Find all news, its variants, total number of news articles, when it was first used and when it was latestly used, about actors starring in any movie
+#Results: 148
+
+--------------------------------C6 SPARQL 1.1 ----------------------------------------
+PREFIX linkedmdb: <http://data.linkedmdb.org/resource/movie/>
+ PREFIX dcterms: <http://purl.org/dc/terms/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+ PREFIX purl: <http://purl.org/dc/terms/>
+ PREFIX nytimes: <http://data.nytimes.com/elements/>
+ SELECT ?actor ?filmTitle ?news ?variants ?articleCount ?first_use ?latest_use
+ WHERE 
+ {
+    SERVICE <http://linked-mdb.system.ip.address:8896/sparql> 
+    { 
+    ?film purl:title            ?filmTitle .
+    ?film linkedmdb:actor           ?actor .
+    ?actor owl:sameAs           ?dbpediaURI.
+    }
+    SERVICE <http://newyork-times.system.ip.address:8897/sparql>
+    { 
+    ?nytURI owl:sameAs          ?dbpediaURI .
+    ?nytURI nytimes:topicPage       ?news ;
+    nytimes:number_of_variants  ?variants;
+    nytimes:associated_article_count ?articleCount;
+    nytimes:first_use       ?first_use;
+    nytimes:latest_use      ?latest_use
+    }
+ }
+ order by (?actor)
+
+################################C7###################################
+
+For all the authors and their corresponding publication who also had role in ESWC 2010,
+along with the information in which countries these authors lived in with the optional information of geographical location of that country and the name its capital (if available) 
+#Results:112
+
+--------------------------------C7 SPARQL 1.1 ----------------------------------------
+prefix swc: <http://data.semanticweb.org/ns/swc/ontology#>
+prefix swrc: <http://swrc.ontoware.org/ontology#>
+prefix eswc: <http://data.semanticweb.org/conference/eswc/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix dbpedia: <http://dbpedia.org/ontology/>
+prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+SELECT  DISTINCT ?author ?role ?paper ?place ?capital ?latitude ?longitude  ?proceedings WHERE 
+{
+    SERVICE <http://sw-dog-food.system.ip.address:8898/sparql>
+    { 
+    ?role swc:isRoleAt  eswc:2010.
+    ?role swc:heldBy ?author .
+    ?proceedings swc:relatedToEvent eswc:2010.
+    ?paper swrc:author ?author .
+    ?author foaf:based_near ?place.
+    ?paper swc:isPartOf ?proceedings .
+    }
+optional
+{
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>
+    {
+    ?place dbpedia:capital ?capital;
+    geo:lat ?latitude;  
+    geo:long ?longititude.
+    }
+}
+}
+###############################C8######################################
+
+For all the proceedings of ISWC along with proceeding address and the list of authors, their complete name, their corresponding publications, 
+their affiliations and in which country they actually based in with the optional information of capital, language, government type, leader name and population density of their country.
+#Results:3067
+
+--------------------------------C8 SPARQL 1.1 ----------------------------------------
+prefix swc: <http://data.semanticweb.org/ns/swc/ontology#>
+prefix swrc: <http://swrc.ontoware.org/ontology#>
+prefix eswc: <http://data.semanticweb.org/conference/eswc/>
+prefix iswc:  <http://data.semanticweb.org/conference/iswc/2009/>
+prefix dbpedia: <http://dbpedia.org/ontology/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix purl: <http://purl.org/ontology/bibo/>
+SELECT DISTINCT * WHERE 
+{
+    SERVICE <http://sw-dog-food.system.ip.address:8898/sparql>
+    { 
+    ?paper swc:isPartOf iswc:proceedings .
+    iswc:proceedings swrc:address ?proceedingAddress.
+    ?paper swrc:author ?author .
+    ?author swrc:affiliation ?affiliation ;
+    rdfs:label ?fullnames ;
+    foaf:based_near ?place.
+    }
+optional
+{
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>
+    {
+    ?place dbpedia:capital ?capital;
+    dbpedia:populationDensity  ?populationDensity;
+    dbpedia:governmentType   ?governmentType;
+    dbpedia:language  ?language ;
+    dbpedia:leaderTitle ?leaderTitle.
+    }
+}
+}
+##############################C9########################################
+For all drugs in DBpedia, find all drugs they interact with each other, along with the details of the interaction,
+with optional information of drug description, its structure and casRegistry Number for one of the interacted drug that affects hummans and mammals.
+ #Results:100
+
+--------------------------------C9 SPARQL 1.1 ----------------------------------------
+Prefix dbpedia: <http://dbpedia.org/ontology/>
+Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix owl: <http://www.w3.org/2002/07/owl#>
+Prefix drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+SELECT * WHERE 
+{
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> { ?Drug rdf:type dbpedia:Drug .}
+    SERVICE <http://drugbank.system.ip.address:8892/sparql>
+    { 
+    ?drugbankDrug owl:sameAs ?Drug .
+    ?InteractionName drugbank:interactionDrug1 ?drugbankDrug .
+    ?InteractionName drugbank:interactionDrug2 ?drugbankDrug2 .
+    ?InteractionName drugbank:text ?IntEffect 
+    }
+optional
+{
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+    {
+    ?drugbankDrug  drugbank:affectedOrganism 'Humans and other mammals';
+    drugbank:description ?description ;
+    drugbank:structure ?structure ;
+    drugbank:casRegistryNumber ?casRegistryNumber
+    }
+}
+}
+order by (?drugbankDrug)
+limit 100
+
+##############################C10########################################
+Get clinical information about TCGA patient along with drug and location information.
+#Results: 102
+
+--------------------------------C10 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/>
+PREFIX kegg: <http://bio2rdf.org/ns/kegg#>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX purl: <http://purl.org/dc/terms/>
+SELECT  DISTINCT ?patient  ?gender ?country ?popDensity ?drugName ?indication ?formula ?compound ?ChemicalEquation ?ReactionTitle 
+WHERE
+{
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql> 
+    {
+    ?uri tcga:bcr_patient_barcode           ?patient .
+    ?patient tcga:gender                    ?gender.
+    ?patient dbpedia:country                ?country.
+    ?patient tcga:bcr_drug_barcode          ?drugbcr.
+    ?drugbcr tcga:drug_name                 ?drugName. 
+    }
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql> {?country dbpedia:populationDensity       ?popDensity.}
+    SERVICE <http://drugbank.system.ip.address:8892/sparql> 
+    {
+    ?drgBnkDrg  drugbank:genericName        ?drugName.
+    ?drgBnkDrg  drugbank:indication         ?indication.
+    ?drgBnkDrg  drugbank:chemicalFormula    ?formula.
+    ?drgBnkDrg  drugbank:keggCompoundId     ?compound .
+    }
+}
+#################################################################################
+                          Large DATA Queries
+                          
+############################### L1 ######################################
+Description: Get the exon and gene expression values for TCGA patient no. TCGA-37-3789.
+Results: 227192
+
+--------------------------------L1 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+SELECT   ?expValue 
+WHERE
+{
+  {
+   SERVICE <http://LinkedTCGA-E.system.ip.address:8888/sparql>  
+   {
+   ?s   tcga:bcr_patient_barcode    <http://tcga.deri.ie/TCGA-37-3789>.  
+   <http://tcga.deri.ie/TCGA-37-3789>   tcga:result ?results. 
+   ?results  tcga:RPKM ?expValue.
+   }
+  }
+UNION
+  {
+   SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+   ?uri tcga:bcr_patient_barcode    <http://tcga.deri.ie/TCGA-37-3789>.  
+   <http://tcga.deri.ie/TCGA-37-3789>   tcga:result ?geneResults. 
+   ?geneResults  tcga:scaled_estimate ?expValue.
+   }
+  }
+}
+############################### L2 ######################################
+Description: Get the tumor type and Exon values for all the patient having lung cancer and tumor weight less than 56
+Results: 152899
+
+--------------------------------L2 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+SELECT   DISTINCT ?patient ?tumorType ?exonValue
+WHERE
+{
+SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?s tcga:bcr_patient_barcode ?patient.
+    ?patient tcga:disease_acronym <http://tcga.deri.ie/lusc>.
+    ?patient tcga:tumor_weight ?weight.
+    ?patient tcga:tumor_type ?tumorType. 
+    }
+    SERVICE <http://LinkedTCGA-E.system.ip.address:8888/sparql>  
+    { 
+    ?patient tcga:result ?results.
+    ?results tcga:RPKM  ?exonValue.
+    }
+FILTER(?weight <= 55)
+}
+############################### L3 ######################################
+Description: Get the methylation values for all the patients who have been treated drug "Tarceva" and they died while at initial pathologic diagnosis age of less than 52. 
+#Results: 257158
+
+--------------------------------L3 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT  ?patient ?methylationValue
+WHERE
+{
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?s tcga:bcr_patient_barcode ?patient.
+    ?patient <http://tcga.deri.ie/schema/vital_status> "Dead".
+    ?patient tcga:bcr_drug_barcode ?drug.
+    ?drug tcga:drug_name "Tarceva".
+    ?patient <http://tcga.deri.ie/schema/age_at_initial_pathologic_diagnosis> ?age.
+    }
+    SERVICE <http://LinkedTCGA-M.system.ip.address:8887/sparql>  
+   {
+    ?patient tcga:result ?results.
+    ?results  tcga:beta_value ?methylationValue.
+    }
+FILTER(?age <= 51)
+}
+ORDER BY (?patient)
+############################### L4 ######################################
+Description: Get the expression values for all the patients either belong to Brazil or Argentina
+#Results: 397204
+--------------------------------L4 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+SELECT    ?expressionValues
+WHERE
+{
+ {
+  SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+  ?uri tcga:bcr_patient_barcode ?patient.
+  ?patient dbpedia:country ?country.
+  ?patient tcga:result ?results.
+  ?results  tcga:reads_per_million_miRNA_mapped ?expressionValues.
+   FILTER REGEX(?country,"Brazil|Argentina", "i")
+  } 
+ }
+UNION
+ {
+ SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql> 
+  {
+  ?patient dbpedia:country ?country.
+  ?s tcga:bcr_patient_barcode ?patient.
+  FILTER REGEX(?country,"Brazil|Argentina", "i")
+  }
+  SERVICE <http://LinkedTCGA-E.system.ip.address:8888/sparql>  
+   {
+  ?patient tcga:result ?exonResults.
+  ?exonResults tcga:RPKM ?expressionValues.
+  }
+ }
+
+}
+############################### L5 ######################################
+Description: Get the methylation values for CNTNAP2 gene of all the cancer patients
+Results: 190575
+
+--------------------------------L5 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX affymetrix: <http://bio2rdf.org/affymetrix_vocabulary:>
+SELECT  ?methylationCNTNAP2   
+WHERE 
+{
+    SERVICE <http://affymetrix.system.ip.address:8899/sparql>  
+   {
+    ?s affymetrix:x-symbol <http://bio2rdf.org/symbol:CNTNAP2>.
+    ?s affymetrix:x-geneid ?geneId.
+    }
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?geneId rdf:type tcga:expression_gene_lookup.
+    ?geneId tcga:chromosome ?lookupChromosome. 
+    ?geneId tcga:start ?start.
+    ?geneId tcga:stop  ?stop.
+    }
+    SERVICE <http://LinkedTCGA-M.system.ip.address:8887/sparql>  
+   {
+    ?uri tcga:bcr_patient_barcode ?patient .
+    ?patient tcga:result ?recordNo .
+    ?recordNo tcga:chromosome   ?chromosome.
+    ?recordNo tcga:position     ?position.
+    ?recordNo tcga:beta_value  ?methylationCNTNAP2.
+    }
+ FILTER (?position >= ?start && ?position <= ?stop && str(?chromosome) = str(?lookupChromosome) )
+}
+############################### L6 ######################################
+Description: For all cancer patients, get the genomic locations and corresponding gene expression values for chromosome associated with KRAS gene.
+Results: 282154
+
+--------------------------------L6 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX affymetrix: <http://bio2rdf.org/affymetrix_vocabulary:>
+SELECT  DISTINCT ?patient ?start ?stop ?geneExpVal
+WHERE 
+{
+    SERVICE <http://affymetrix.system.ip.address:8899/sparql>  
+   {
+    ?s affymetrix:x-symbol <http://bio2rdf.org/symbol:KRAS>.
+    ?s affymetrix:x-geneid ?geneId.
+    }
+ SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?geneId rdf:type tcga:expression_gene_lookup.
+    ?geneId tcga:chromosome ?lookupChromosome.
+    ?uri tcga:bcr_patient_barcode ?patient .
+    ?patient tcga:result ?recordNo .
+    ?recordNo tcga:chromosome   ?chromosome.
+    ?recordNo tcga:start ?start.
+    ?recordNo tcga:stop ?stop.
+    ?recordNo tcga:scaled_estimate ?geneExpVal
+    }
+        FILTER (str(?lookupChromosome)= str(?chromosome))
+}
+############################### L7 ######################################
+Description: Find the clinical aliquot data for all the patients belonging to those countries with population density greater than 31. 
+Results: 80459
+
+--------------------------------L7 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+SELECT DISTINCT ?patient ?p ?o
+WHERE
+{
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?uri tcga:bcr_patient_barcode ?patient .
+    ?patient dbpedia:country ?country.
+    }
+    SERVICE <http://dbpedia-subset.system.ip.address:8891/sparql>  { ?country dbpedia:populationDensity ?popDensity. }
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?patient tcga:bcr_aliquot_barcode ?aliquot.
+    ?aliquot ?p ?o.
+    }
+FILTER(?popDensity >= 32)
+}
+############################### L8 ######################################
+Description: Get the outliers expression values for TCGA patient TCGA-D9-A1X3
+Results:306705
+
+--------------------------------L8 SPARQL 1.1 ----------------------------------------
+PREFIX tcga: <http://tcga.deri.ie/schema/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+SELECT  ?chromosome ?expressionValue
+WHERE
+{
+{
+    SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+    ?uri tcga:bcr_patient_barcode <http://tcga.deri.ie/TCGA-D9-A1X3> .
+    <http://tcga.deri.ie/TCGA-D9-A1X3> tcga:result ?recordNo .
+    ?recordNo tcga:chromosome   ?chromosome.
+    ?recordNo tcga:protein_expression_value ?expressionValue.
+    }
+}
+UNION
+{
+    SERVICE <http://LinkedTCGA-M.system.ip.address:8887/sparql>  
+   {
+    ?s tcga:bcr_patient_barcode <http://tcga.deri.ie/TCGA-D9-A1X3> .
+    <http://tcga.deri.ie/TCGA-D9-A1X3> tcga:result ?results .
+    ?results tcga:chromosome   ?chromosome.
+    ?results tcga:beta_value ?expressionValue.
+    }
+}
+FILTER (?expressionValue > 0.05)
+}

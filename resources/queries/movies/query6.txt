@@ -1,0 +1,20 @@
+# low selectivity from linkedmdb and high selectivity from dbpedia. Not SB from LinkedMDB (i.e. injecting nulls using ?dbpedialink)
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+select * where 
+{
+	SERVICE<http://localhost:3230/linkedmdb/sparql>{
+
+	?s rdf:type <http://data.linkedmdb.org/resource/movie/film> . 
+#?s <http://data.linkedmdb.org/resource/movie/language> <http://www.lingvoj.org/lingvo/en> .
+	?s <http://data.linkedmdb.org/resource/movie/country> <http://data.linkedmdb.org/resource/country/AR> .
+	?s <http://data.linkedmdb.org/resource/movie/director> ?director
+	OPTIONAL{ ?s <http://www.w3.org/2002/07/owl#sameAs> ?dbpedialink .} 
+	}
+	SERVICE<http://localhost:3130/hgnc/sparql>{
+		?dbpedialink rdf:type <http://dbpedia.org/ontology/Film> .
+		?dbpedialink <http://www.w3.org/2000/01/rdf-schema#label>  ?label .
+		?dbpedialink <http://dbpedia.org/property/country> <http://dbpedia.org/resource/France>
+	}		
+}

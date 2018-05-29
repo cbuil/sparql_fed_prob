@@ -1,0 +1,8 @@
+select * where {
+  service<http://localhost:8890/sparql>{
+    GRAPH <http://example.org/sp2b_people> { ?s ?p <http://localhost/misc/UnknownDocument> }
+  }
+  service<http://localhost:8890/sparql> {
+    GRAPH <http://example.org/sp2b> { ?s ?p2 ?o2}
+  }
+}

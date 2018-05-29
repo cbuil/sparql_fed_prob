@@ -1,0 +1,38 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join1.rq, -j, UNION, -o, bench.bio.results, -b, 500])
+ Joins [UNION]
+500
+500
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { <http://bio2rdf.org/mgi:1915545>
+                  ?p  ?join
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ <http://bio2rdf.org/mgi:1915545>
+            ?p  ?join
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" })
+___
+RUNNING UNION for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join1.rq
+P1:SELECT  *
+WHERE
+  { <http://bio2rdf.org/mgi:1915545>
+              ?p  ?join
+  }
+
+Running batch
+[JOIN] UNION [RESULTS] 1 [TIME] -1 [EXCEPTION] 
+ carlos_join1.rq,UNION,1,5588,27,1,1,1,500,
+=======[END] (9994 ms)
+ 

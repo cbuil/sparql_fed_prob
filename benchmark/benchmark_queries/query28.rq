@@ -1,0 +1,34 @@
+#Description: Get the expression values for all the patients either belong to Brazil or Argentina
+#Results: 397204
+
+PREFIX tcga: <http://tcga.deri.ie/schema/> 
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+SELECT    ?expressionValues
+WHERE
+{
+ {
+  SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql>  
+   {
+  ?uri tcga:bcr_patient_barcode ?patient.
+  ?patient dbpedia:country ?country.
+  ?patient tcga:result ?results.
+  ?results  tcga:reads_per_million_miRNA_mapped ?expressionValues.
+   FILTER REGEX(?country,"Brazil|Argentina", "i")
+  } 
+ }
+UNION
+ {
+ SERVICE <http://LinkedTCGA-A.system.ip.address:8889/sparql> 
+  {
+  ?patient dbpedia:country ?country.
+  ?s tcga:bcr_patient_barcode ?patient.
+  FILTER REGEX(?country,"Brazil|Argentina", "i")
+  }
+  SERVICE <http://LinkedTCGA-E.system.ip.address:8888/sparql>  
+   {
+  ?patient tcga:result ?exonResults.
+  ?exonResults tcga:RPKM ?expressionValues.
+  }
+ }
+
+}

@@ -1,0 +1,27 @@
+# SB from MGI to not SB in HGNC (?mgi)
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+select * where {
+SERVICE<http://localhost:3030/mgi/sparql> {
+  ?mgi rdf:type ?type .
+  # in the optional ?geneid should be the trick
+  ?mgi <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?link_hgnc 
+    OPTIONAL {
+      ?mgi <http://bio2rdf.org/mgi_vocabulary:xGeneID> ?geneid
+    }
+}
+SERVICE <http://localhost:3130/hgnc/sparql>{
+   {
+     ?res1 <http://bio2rdf.org/hgnc_vocabulary:status> "Symbol Withdrawn".
+     ?res1 <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date1 . 
+     #?res1 <http://bio2rdf.org/hgnc_vocabulary:x-mgi> ?mgi1 
+  }
+  UNION 
+  {
+    ?res2 <http://bio2rdf.org/hgnc_vocabulary:status> "Approved".
+    ?res2 <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date2 . 
+    OPTIONAL { ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-mgi> ?mgi }
+    OPTIONAL { ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-geneid> ?geneid . }
+    OPTIONAL { ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-pubmed> ?pubmed . }
+  }
+}
+}

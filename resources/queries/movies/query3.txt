@@ -1,0 +1,19 @@
+# low selectivity from linkedmdb and low selectivity from dbpedia
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+select * where {
+	SERVICE<http://localhost:3030/linkedmdb/sparql>{
+		?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.linkedmdb.org/resource/movie/film> .
+		#?s <http://data.linkedmdb.org/resource/movie/language> <http://www.lingvoj.org/lingvo/en> .
+		?s <http://data.linkedmdb.org/resource/movie/director> ?dir .
+		?s <http://www.w3.org/2000/01/rdf-schema#label> ?label .
+		?s <http://www.w3.org/2002/07/owl#sameAs> ?dbpedialink .
+		?s <http://data.linkedmdb.org/resource/movie/director> ?dir .
+		?dir <http://data.linkedmdb.org/resource/movie/director_name> ?name
+	}
+	SERVICE<http://localhost:3130/dbpedia38/sparql>{
+		?dbpedia_link rdf:type <http://dbpedia.org/ontology/Film> .
+		?dbpedia_link <http://dbpedia.org/property/country> <http://dbpedia.org/resource/France>
+	}
+}

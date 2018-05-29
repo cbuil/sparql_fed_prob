@@ -1,0 +1,64 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join5.rq, -j, UNION, -o, bench.bio.results, -b, 500])
+ Joins [UNION]
+500
+500
+______
+Parsing Query
+______
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?mgi  rdf:type              ?type ;
+              <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+              <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?link_hgnc
+        FILTER ( ?o < str(80) )
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      {   { ?res1  <http://bio2rdf.org/hgnc_vocabulary:status>  "Symbol Withdrawn" ;
+                   <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date1
+            FILTER ( ?date1 < "1995-01-01"^^xsd:date )
+          }
+        UNION
+          { ?link_hgnc  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+                      <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date2
+            FILTER ( ?date2 > "2012-01-01"^^xsd:date )
+          }
+      }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?mgi  a                     ?type ;
+        <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+        <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?link_hgnc
+  FILTER ( ?o < str(80) )
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{   { ?res1  <http://bio2rdf.org/hgnc_vocabulary:status>  "Symbol Withdrawn" ;
+             <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date1
+      FILTER ( ?date1 < "1995-01-01"^^<http://www.w3.org/2001/XMLSchema#date> )
+    }
+  UNION
+    { ?link_hgnc  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+                <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date2
+      FILTER ( ?date2 > "2012-01-01"^^<http://www.w3.org/2001/XMLSchema#date> )
+    }
+})
+___
+RUNNING UNION for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join5.rq
+P1:SELECT  *
+WHERE
+  { ?mgi  a                     ?type ;
+          <http://bio2rdf.org/mgi_vocabulary:chromosomePosition>  ?o ;
+          <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?link_hgnc
+    FILTER ( ?o < str(80) )
+  }
+
+Running batch
+Running batch
+Running batch
+Running batch

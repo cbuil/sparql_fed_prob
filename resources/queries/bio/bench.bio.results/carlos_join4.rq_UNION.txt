@@ -1,0 +1,9 @@
+#JOIN results time ep0_calls ep1_calls
+6,46689,250924,301,1,335,750,
+#Bindings
+( ?date = "1988-07-19"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:9723> ) ( ?s = <http://bio2rdf.org/mgi:97828> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )
+( ?date = "1990-06-22"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:11986> ) ( ?s = <http://bio2rdf.org/mgi:98788> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )
+( ?date = "1991-07-12"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:4806> ) ( ?s = <http://bio2rdf.org/mgi:96010> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )
+( ?date = "1992-12-07"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:6971> ) ( ?s = <http://bio2rdf.org/mgi:97050> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )
+( ?date = "1992-12-17"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:8876> ) ( ?s = <http://bio2rdf.org/mgi:97547> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )
+( ?date = "1993-07-19"^^xsd:date ) -> ( ?res1 = <http://bio2rdf.org/hgnc:4855> ) ( ?s = <http://bio2rdf.org/mgi:96062> ) ( ?type = <http://bio2rdf.org/mgi_vocabulary:Marker> )

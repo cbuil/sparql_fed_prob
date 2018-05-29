@@ -1,0 +1,30 @@
+select * where {
+{
+?s <http://bio2rdf.org/mgi_vocabulary:xUniProt> ?link_xgo .
+ # ?s <http://bio2rdf.org/mgi_vocabulary:genomeStart> ?start .
+ # ?s <http://bio2rdf.org/mgi_vocabulary:symbol> "Gna12" .
+ # ?s <http://bio2rdf.org/mgi_vocabulary:genomeEnd> ?end .
+ # ?s <http://bio2rdf.org/mgi_vocabulary:chromosomePosition> ?pos
+#  filter(?start = 49.76)
+}
+OPTIONAL
+{
+    ?s <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?link_hgnc .
+}
+
+SERVICE <http://hgnc.bio2rdf.org/sparql>{
+   {
+     ?res1 <http://bio2rdf.org/hgnc_vocabulary:status> "Symbol Withdrawn".
+     ?res1 <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date1 . 
+     #?res1 <http://bio2rdf.org/hgnc_vocabulary:x-mgi> ?mgi1 
+  }
+  UNION 
+  {
+    ?res2 <http://bio2rdf.org/hgnc_vocabulary:status> "Approved".
+    ?res2 <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date2 . 
+    ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-mgi> ?mgi2 
+    OPTIONAL { ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-geneid> ?geneid . }
+    OPTIONAL { ?res2 <http://bio2rdf.org/hgnc_vocabulary:x-pubmed> ?pubmed . }
+  }
+}
+}

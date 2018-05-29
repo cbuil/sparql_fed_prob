@@ -1,0 +1,24 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+SELECT * where {
+  SERVICE<http://localhost:8890/sparql> {
+    GRAPH <http://bio2rdf.org/mgi> { 
+      ?mgi rdf:type ?type .
+      ?mgi <http://bio2rdf.org/mgi_vocabulary:chromosomePosition> ?o .
+      ?mgi <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?link_hgnc .
+      filter(?o < str(80))
+    }
+  }
+  SERVICE <http://localhost:8890/sparql>{
+    GRAPH <http://bio2rdf.org/hgnc> { 
+      {
+        ?res1 <http://bio2rdf.org/hgnc_vocabulary:status> "Symbol Withdrawn".
+        ?res1 <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date1 . 
+      }
+      UNION 
+      {
+        ?link_hgnc <http://bio2rdf.org/hgnc_vocabulary:status> "Approved".
+        ?link_hgnc <http://bio2rdf.org/hgnc_vocabulary:date_modified> ?date2 . 
+      }
+    }
+  }
+} 

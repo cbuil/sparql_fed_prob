@@ -1,0 +1,43 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join2.rq, -j, UNION, -o, bench.bio.results, -b, -1])
+ Joins [UNION]
+-1
+-1
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?o  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join ;
+            <http://bio2rdf.org/mgi_vocabulary:xSymbol>  ?symbol
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?o  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join ;
+      <http://bio2rdf.org/mgi_vocabulary:xSymbol>  ?symbol
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" })
+___
+RUNNING UNION for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join2.rq
+P1:SELECT  *
+WHERE
+  { ?o  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?join ;
+        <http://bio2rdf.org/mgi_vocabulary:xSymbol>  ?symbol
+  }
+
+I/O exception (java.net.SocketException) caught when processing request: Protocol wrong type for socket (Write failed)
+ Retrying request
+ I/O exception (java.net.SocketException) caught when processing request: Broken pipe (Write failed)
+ Retrying request
+ I/O exception (java.net.SocketException) caught when processing request: Broken pipe (Write failed)
+ Retrying request
+ [JOIN] UNION [RESULTS] -1 [TIME] -1 [EXCEPTION] QueryExceptionHTTP
+ carlos_join2.rq,UNION,-1,4898,17817,-1,1,-1,-1,QueryExceptionHTTP
+=======[END] (7866 ms)
+ 

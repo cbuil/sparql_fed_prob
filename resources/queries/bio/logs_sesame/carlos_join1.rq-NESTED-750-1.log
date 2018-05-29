@@ -1,0 +1,34 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join1.rq, -j, NESTED, -o, bench.bio.results, -b, 750])
+ Joins [NESTED]
+750
+750
+______
+Parsing Query
+______
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { <http://bio2rdf.org/mgi:1915545>
+                  ?p  ?join
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ <http://bio2rdf.org/mgi:1915545>
+            ?p  ?join
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?join  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" })
+___
+RUNNING NESTED for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join1.rq
+{ <http://bio2rdf.org/mgi:1915545>
+            ?p  ?join
+}
+[JOIN] UNION [RESULTS] 1 [TIME] -1 [EXCEPTION] 
+ carlos_join1.rq,NESTED,1,3255,27,1,1,27,750,
+=======[END] (6120 ms)
+ 

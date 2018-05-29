@@ -2,7 +2,6 @@ package cli;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,22 +11,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
-
-import join.JoinOps;
+import java.util.TreeSet;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.sparql.engine.binding.Binding;
+import org.apache.jena.sparql.engine.binding.BindingHashMap;
+import org.apache.jena.sparql.engine.http.HttpQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.apache.jena.query.QueryParseException;
-import org.apache.jena.sparql.engine.binding.Binding;
-import org.apache.jena.sparql.engine.http.HttpQuery;
-
-import utils.QueryParser;
-import utils.SplitQuery;
 import bench.BenchmarkResult;
 import bench.QueryExecution;
+import join.JoinOps;
+import ops.Tasks;
+import utils.QueryParser;
+import utils.SplitQuery;
 
 /**
  * 
@@ -112,7 +113,6 @@ public class Run extends CLIObject
     {
         try
         {
-
             SplitQuery sq = QueryParser.splitQuery(q.toString(), localEndpoint);
             sq.setBatch(batch);
 
@@ -123,6 +123,15 @@ public class Run extends CLIObject
             for (String join : joins)
             {
                 System.out.println("RUNNING " + join + " for " + q);
+                Query p1 = QueryFactory.create();
+                p1.setQueryPattern(sq.getP1());
+                p1.setQuerySelectType();
+                p1.setQueryResultStar(true);
+                TreeSet<BindingHashMap> firstResults = Tasks.service(sq.getP1Endpoint(), p1);
+                Query p2 = QueryFactory.create();
+                p2.setQueryPattern(sq.getP2());
+                p2.setQuerySelectType();
+                p2.setQueryResultStar(true);
                 Map<String, BenchmarkResult> results = qe.executeOverHTTP(sq,
                         debug, JoinOps.valueOf(join));
                 PrintWriter pw = new PrintWriter(new File(outDir, q.getName()

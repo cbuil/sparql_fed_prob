@@ -1,0 +1,16 @@
+select * where {
+  service<http://localhost:8890/sparql> {
+  	GRAPH <http://bio2rdf.org/mgi> { 
+	  	?s <http://bio2rdf.org/mgi_vocabulary:chromosomePosition> ?o .
+		?s <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?join .
+	  	filter(?o < str(80)) 
+  	}
+}
+  service<http://localhost:8890/sparql> {
+  GRAPH <http://bio2rdf.org/hgnc> { 
+	    ?join <http://bio2rdf.org/hgnc_vocabulary:status>	"Approved" .
+	    ?join <http://bio2rdf.org/hgnc_vocabulary:x-pubmed> ?pubmed .
+	    ?join <http://bio2rdf.org/hgnc_vocabulary:x-geneid> ?geneid
+	 }
+  }
+}

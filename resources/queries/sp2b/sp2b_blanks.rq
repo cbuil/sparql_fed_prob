@@ -1,0 +1,8 @@
+select * where {
+  service<http://localhost:3030/people/sparql>{
+    ?s ?p <http://localhost/misc/UnknownDocument>
+  }
+  service<http://localhost:3030/journal/sparql> {
+    ?s ?p2 ?o2
+  }
+}

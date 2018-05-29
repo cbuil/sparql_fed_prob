@@ -46,7 +46,8 @@ public class Operations
         if (b==null || b.size() == 0)
             return null;
         // Get the vars only present in b:
-        TreeSet<Var> b_only_vars = new TreeSet<Var>();
+        VarComparator varComp = new VarComparator();
+        TreeSet<Var> b_only_vars = new TreeSet<Var>(varComp);
         Iterator<Var> itb = b.first().vars();
         while (itb.hasNext())
             b_only_vars.add(itb.next());

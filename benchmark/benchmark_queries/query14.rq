@@ -1,0 +1,20 @@
+SELECT ?drug ?transform ?mass
+ WHERE 
+ { 
+    {
+	SERVICE <http://localhost:3038/DrugBank/query> 
+	{ 
+	  ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/affectedOrganism>  'Humans and other mammals'. 
+ 	  ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/casRegistryNumber> ?cas
+	}
+	SERVICE <http://localhost:3033/KEGG/query>
+	{ 
+	  ?keggDrug <http://bio2rdf.org/ns/bio2rdf#xRef> ?cas . 
+	  ?keggDrug <http://bio2rdf.org/ns/bio2rdf#mass> ?mass .
+        }
+    } 	  
+	OPTIONAL 
+	{
+	SERVICE <http://localhost:3038/DrugBank/query>{ ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/biotransformation> ?transform .
+	} 
+}

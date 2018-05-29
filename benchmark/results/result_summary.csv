@@ -1,0 +1,44 @@
+ bio_query1,FILTER,1,430,27,1,-1,-1
+ bio_query1,NESTED,1,323,27,1,1,27
+ bio_query1,SYMHASH,1,1504,27,33562,-1,-1
+ bio_query1,VALUES,1,63,27,1,-1,-1
+ bio_query3,FILTER,19337,13669,16753,19334,-1,-1
+ bio_query3,NESTED,19337,87627,16753,19337,1,16753
+ bio_query3,SYMHASH,19337,1603,16753,27862,-1,-1
+ bio_query3,VALUES,19337,6453,16753,19337,-1,-1
+ bio_query2,FILTER,17547,5452,17817,17545,-1,-1
+ bio_query2,NESTED,17547,55023,17817,17547,1,17817
+ bio_query2,SYMHASH,17547,1203,17817,33562,-1,-1
+ bio_query2,VALUES,17547,15635,17817,17547,-1,-1
+ bio_query4,FILTER,17549,4865,17819,17547,-1,-1
+ bio_query4,NESTED,17549,54751,17819,17549,1,17819
+ bio_query4,SYMHASH,17549,1220,17819,33562,-1,-1
+ bio_query4,VALUES,17549,20307,17819,17549,-1,-1
+ bio_query5,FILTER,0,46948,101596,0,-1,-1
+ bio_query5,NESTED,0,382573,101596,0,1,101596
+ bio_query5,SYMHASH,0,3508,101596,33134,-1,-1
+ bio_query8.txt,FILTER,-1,19543,-1,-1,-1,-1,NullPointerException null
+ bio_query6.txt,FILTER,-1,238843,-1,-1,-1,-1,NullPointerException null
+ bio_query6.txt,NESTED,-1,3548,-1,-1,1,1,NullPointerException null
+ movie_query6.txt,FILTER,0,225,15,0,-1,-1
+ movie_query6.txt,NESTED,2220,1324,15,2220,1,15
+ movie_query6.txt,SYMHASH,0,201,15,444,-1,-1
+ movie_query6.txt,VALUES,2220,1793,15,2220,-1,-1
+ movie_query5.txt,FILTER,0,20924,15,0,-1,-1
+ movie_query5.txt,NESTED,5450,3103,15,5450,1,15
+ movie_query5.txt,SYMHASH,0,402,15,1090,-1,-1
+ movie_query5.txt,VALUES,5450,1766,15,5450,-1,-1
+ movie_query6.txt,FILTER,0,223,15,0,-1,-1
+ movie_query6.txt,NESTED,2220,1320,15,2220,1,15
+ movie_query6.txt,SYMHASH,0,201,15,444,-1,-1
+ movie_query6.txt,VALUES,2220,1822,15,2220,-1,-1
+ movie_query4.txt,FILTER,2,268,20,2,-1,-1
+ movie_query4.txt,NESTED,2,353,20,2,1,20
+ movie_query4.txt,SYMHASH,2,402,20,22,-1,-1
+ movie_query4.txt,VALUES,2,131,20,2,-1,-1
+ movie_query1.txt,SYMHASH,0,703,11164,0,-1,-1
+ movie_query2.txt,NESTED,7104,1760,16,7104,1,16
+ movie_query2.txt,SYMHASH,7104,404,16,444,-1,-1
+ movie_query2.txt,VALUES,7104,749,16,7104,-1,-1
+ movie_query3.txt,FILTER,-1,1026,-1,-1,-1,-1,NullPointerException null
+

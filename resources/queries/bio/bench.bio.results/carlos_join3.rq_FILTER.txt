@@ -1,0 +1,5 @@
+#JOIN results time ep0_calls ep1_calls
+2,4931,16753,2,1,23,750,
+#Bindings
+( ?pubmed = <http://bio2rdf.org/pubmed:8917469> ) ( ?geneid = <http://bio2rdf.org/geneid:7791> ) -> ( ?o = "20.64" ) ( ?s = <http://bio2rdf.org/mgi:103072> ) ( ?join = <http://bio2rdf.org/hgnc:13200> )
+( ?pubmed = <http://bio2rdf.org/pubmed:8940160> ) ( ?geneid = <http://bio2rdf.org/geneid:7791> ) -> ( ?o = "20.64" ) ( ?s = <http://bio2rdf.org/mgi:103072> ) ( ?join = <http://bio2rdf.org/hgnc:13200> )

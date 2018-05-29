@@ -1,15 +1,7 @@
 package join;
 
-import java.net.URI;
 import java.util.Set;
 import java.util.TreeSet;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import utils.MyBindingComparator;
-import utils.SplitQuery;
-import bench.BenchmarkResult;
 
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -17,14 +9,18 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.sparql.algebra.Algebra;
 import org.apache.jena.sparql.core.ResultBinding;
 import org.apache.jena.sparql.engine.binding.Binding;
-import org.apache.jena.sparql.engine.http.HttpQuery;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.syntax.ElementGroup;
 import org.apache.jena.sparql.syntax.ElementService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import bench.BenchmarkResult;
+import utils.MyBindingComparator;
+import utils.SplitQuery;
 
 public class SERVICE implements JoinOperator{
 	private final static Logger log = LoggerFactory.getLogger(SERVICE.class);

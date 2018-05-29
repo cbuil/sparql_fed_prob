@@ -1,0 +1,13 @@
+select * where {
+  service<http://localhost:8890/sparql> {
+  GRAPH <http://bio2rdf.org/mgi> { 
+	  ?o <http://bio2rdf.org/mgi_vocabulary:xHGNC> ?join .
+	  ?o <http://bio2rdf.org/mgi_vocabulary:xSymbol> ?symbol 
+	}
+}
+  service<http://localhost:8890/sparql> {
+    GRAPH <http://bio2rdf.org/hgnc> { 
+    	?join <http://bio2rdf.org/hgnc_vocabulary:status>	"Approved" .
+  	}	
+  }
+}

@@ -1,0 +1,143 @@
+=======[START] ([-e, http://localhost:8080/rdf4j-server/repositories/mgi, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join8.rq, -j, FILTER, -o, bench.bio.results, -b, 500])
+ Joins [FILTER]
+500
+500
+______
+Parsing Query
+______
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT  *
+WHERE
+  { SERVICE <http://localhost:8080/rdf4j-server/repositories/mgi>
+      { ?s  rdf:type  ?type
+        OPTIONAL
+          { ?s  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?res1 }
+        OPTIONAL
+          { ?s  <http://bio2rdf.org/mgi_vocabulary:xGeneID>  ?geneid }
+      }
+    SERVICE <http://localhost:8080/rdf4j-server/repositories/hgnc>
+      { ?res1  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+               <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date2 ;
+               <http://bio2rdf.org/hgnc_vocabulary:x-mgi>  ?mgi2
+        OPTIONAL
+          { ?res1  <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed }
+      }
+  }
+
+SplitQuery:
+___
+P1 (EP: http://localhost:8080/rdf4j-server/repositories/mgi)
+{ ?s  a                     ?type
+  OPTIONAL
+    { ?s  <http://bio2rdf.org/mgi_vocabulary:xHGNC>  ?res1 }
+  OPTIONAL
+    { ?s  <http://bio2rdf.org/mgi_vocabulary:xGeneID>  ?geneid }
+}
+P2 (EP: http://localhost:8080/rdf4j-server/repositories/hgnc
+{ ?res1  <http://bio2rdf.org/hgnc_vocabulary:status>  "Approved" ;
+         <http://bio2rdf.org/hgnc_vocabulary:date_modified>  ?date2 ;
+         <http://bio2rdf.org/hgnc_vocabulary:x-mgi>  ?mgi2
+  OPTIONAL
+    { ?res1  <http://bio2rdf.org/hgnc_vocabulary:x-pubmed>  ?pubmed }
+})
+___
+RUNNING FILTER for /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/bio/carlos_join8.rq
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+Running batch with 500
+[JOIN] FILTER [RESULTS] 47742 [TIME] -1 [EXCEPTION] 
+ carlos_join8.rq,FILTER,47742,46411,268743,47742,1,94,500,
+=======[END] (52067 ms)
+ 

@@ -1,0 +1,7 @@
+#JOIN results time ep0_calls ep1_calls
+4,101,3,4,1,3,-1,
+#Bindings
+( ?Y = <http://example.org/a> ) -> ( ?Q = <http://example.org/b> ) ( ?X = <http://example.org/a> )
+( ?T = <http://example.org/a> ) ( ?Z = <http://example.org/c> ) ( ?Y = <http://example.org/a> ) -> ( ?Q = <http://example.org/b> ) ( ?X = <http://example.org/a> )
+( ?T = <http://example.org/b> ) ( ?Z = <http://example.org/a> ) ( ?Y = <http://example.org/a> ) -> ( ?Q = <http://example.org/b> ) ( ?X = <http://example.org/a> )
+( ?T = <http://example.org/a> ) ( ?Z = <http://example.org/c> ) ( ?Y = <http://example.org/b> ) -> ( ?Q = <http://example.org/c> ) ( ?X = <http://example.org/b> )

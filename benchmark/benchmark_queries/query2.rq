@@ -1,0 +1,8 @@
+SELECT ?party ?page  WHERE 
+{ SERVICE <http://localhost:3031/DBPedia/query> { <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/party> ?party .} 
+  SERVICE <http://localhost:3042/NYT/query> 
+  { 
+    ?x <http://data.nytimes.com/elements/topicPage> ?page . 
+	?x <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Barack_Obama> .
+	}
+}

@@ -1,0 +1,4 @@
+=======[START] ([-l, -e, http://localhost:3030/data1/sparql, -q, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/theorem/fuseki/query2.rq, -j, VALUES, -o, /Users/cbuil/Proyectos/sparql_fed_prob/svn_wu/sparql_fed_prob/src/benchmark/resources/queries/theorem/fuseki/results])
+ Joins [VALUES]
+null
+-1

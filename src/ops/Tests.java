@@ -24,7 +24,7 @@ public class Tests
         q1.setQueryPattern(body1);
         q1.setQueryResultStar(true);
         // Perform first query:
-        TreeSet<BindingHashMap> r1 = service(ep1,q1);
+        TreeSet<BindingHashMap> r1 = Tasks.service(ep1,q1);
         // Create second query:
         Query q2 = QueryFactory.create();
         ElementGroup body2 = new ElementGroup();
@@ -36,7 +36,7 @@ public class Tests
         Var join_var = r1.first().vars().next();
         ArrayList<Var> join_vars = new ArrayList<Var>();
         join_vars.add(join_var);
-        TreeSet<BindingHashMap> r2 = serviceWithValues(ep2,q2,r1,join_vars);
+        TreeSet<BindingHashMap> r2 = Tasks.serviceWithValues(ep2,q2,r1,join_vars);
         // Return final bindings.
         return r2;
     }

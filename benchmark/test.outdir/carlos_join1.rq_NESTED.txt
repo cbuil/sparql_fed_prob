@@ -1,0 +1,4 @@
+#JOIN results time ep0_calls ep1_calls
+1,474,27,1,1,27,-1,
+#Bindings
+ -> ( ?p = <http://bio2rdf.org/mgi_vocabulary:xHGNC> ) ( ?join = <http://bio2rdf.org/hgnc:15886> )
