@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.graph.Node;
 import org.apache.jena.sparql.core.Var;
 import org.apache.jena.sparql.engine.binding.BindingHashMap;
 
@@ -40,6 +40,7 @@ public class Operations
     public static TreeSet<BindingHashMap> join(
         TreeSet<BindingHashMap> a, TreeSet<BindingHashMap> b, ArrayList<Var> joinvars)
     {
+    	// System.out.println("b: "+b);
         // If there aren't things, return null.
         if (a==null || a.size() == 0)
             return null;
@@ -53,36 +54,40 @@ public class Operations
             b_only_vars.add(itb.next());
         b_only_vars.removeAll(joinvars);
         // Save in a HashMap with key the values of the common variables:
-        HashMap<ArrayList<RDFNode>, ArrayList<BindingHashMap>> b_bind =
-            new HashMap<ArrayList<RDFNode>, ArrayList<BindingHashMap>>();
+        HashMap<ArrayList<Node>, ArrayList<BindingHashMap>> b_bind =
+            new HashMap<ArrayList<Node>, ArrayList<BindingHashMap>>();
         for (BindingHashMap qb : b)
         {
-            ArrayList<RDFNode> key = new ArrayList<RDFNode>();
+            ArrayList<Node> key = new ArrayList<Node>();
             for (Var varname : joinvars)
-                key.add((RDFNode) qb.get(varname));
+                key.add((Node) qb.get(varname));
             ArrayList<BindingHashMap> current_list = b_bind.get(key);
-            if (current_list == null)
+            if (current_list == null) {
                 current_list = new ArrayList<BindingHashMap>();
+                b_bind.put(key, current_list);
+            }
             current_list.add(qb);
-            b_bind.put(key, current_list);
         }
-        // Create new binding for each matching pair of binding with the same
+        // Create new binding for each matching pair of bindings with the same
         // values for the common variables.
         TreeSet<BindingHashMap> res = new TreeSet<BindingHashMap>(new BindingHashMapComparator());
         for (BindingHashMap qa : a)
         {
-            ArrayList<RDFNode> key = new ArrayList<RDFNode>();
+            ArrayList<Node> key = new ArrayList<Node>();
             for (Var varname : joinvars)
-                key.add((RDFNode) qa.get(varname));
+                key.add((Node) qa.get(varname));
             //
-            for (BindingHashMap qb : b_bind.get(key))
-            {
-                BindingHashMap new_binding = new BindingHashMap(qa);
-                for (Var varname : b_only_vars)
-                {
-                    new_binding.add(varname, qb.get(varname));
-                }
-                res.add(new_binding);
+            ArrayList<BindingHashMap> current = b_bind.get(key); 
+            if(current != null) {
+	            for (BindingHashMap qb : current)
+	            {
+	                BindingHashMap new_binding = new BindingHashMap(qa);
+	                for (Var varname : b_only_vars)
+	                {
+	                    new_binding.add(varname, qb.get(varname));
+	                }
+	                res.add(new_binding);
+	            }
             }
         }
         //

@@ -13,16 +13,6 @@ class VarComparator implements Comparator<Var>
     @Override
     public int compare(Var var1, Var var2)
     {
-//        TreeSet<Var> orderedvars = new TreeSet<Var>(new Comparator<Var>()
-//        {
-//            @Override
-//            public int compare(Var v1, Var v2)
-//            {
-//                return v1.toString().compareTo(v2.toString());
-//            }
-//        });
-
-//        int res = var1.getName() - var2.getName();
         return var1.getName().compareTo(var2.getName());
     }
 }

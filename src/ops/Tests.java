@@ -36,7 +36,7 @@ public class Tests
         Var join_var = r1.first().vars().next();
         ArrayList<Var> join_vars = new ArrayList<Var>();
         join_vars.add(join_var);
-        TreeSet<BindingHashMap> r2 = Tasks.serviceWithValues(ep2,q2,r1,join_vars);
+        TreeSet<BindingHashMap> r2 = Tasks.serviceWithValues(ep2,q2,r1,join_vars,0);
         // Return final bindings.
         return r2;
     }
